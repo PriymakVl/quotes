@@ -1,0 +1,15 @@
+#menu-outside-wrp {
+	position: fixed;
+	top: 100px;
+	left: 100px;
+}
+
+#menu-outside-wrp li {
+	margin-top: 10px;
+	list-style: none;
+}
+
+#menu-outside-wrp a {
+	color: #7BA857;
+	font-size: 17px;
+}

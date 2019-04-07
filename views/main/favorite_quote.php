@@ -1,0 +1,1 @@
+<div id="favorite-quote">Put your favorite quote here...</div>

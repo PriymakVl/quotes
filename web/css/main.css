@@ -1,0 +1,98 @@
+#favorite-quote {
+	height: 40px;
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-size: 17px;
+	line-height: 40px;
+	font-style: italic;
+	letter-spacing: -.5px;
+	color: #7ba45b;
+	padding-left: 45px;
+	border-bottom: 1px solid #ebebeb;
+}
+
+/* Categories */
+#categories {
+	float: left;
+	width: 230px;
+}
+
+#categories h3 {
+	color: #444;
+	font: normal 1em Georgia, 'Times New Roman', Times, Serif;
+	letter-spacing: -0.5px;
+	padding: 5px 10px;
+}
+
+#categories ul {
+	text-align: left;
+	margin: 0 8px 8px 8px;
+	border-top: 1px solid #ebebeb; 
+}
+#categories ul li {
+	list-style: none;
+	background: url(../images/dots.gif) repeat-x left bottom;
+	padding: 7px 5px;
+	margin: 0;		
+}
+
+#categories ul li a:link,
+#categories ul li a:visited {
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	background-image: none;	
+	background-color: transparent;
+	border: none;
+	color: #7BA857;
+	padding-left: 0;	
+}
+
+#categories ul li a span {
+	color: #9F9F9F;	
+	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-style: normal;
+	font-size: 1em;
+}
+
+#categories ul li a:hover { color: #000;	}
+#categories ul ul { margin: 0 0 0 5px; padding: 0; }
+#categories ul ul li { background: none; }
+
+/** random quotes **/
+#random-quotes-wrp {
+	float: right;
+	margin: 5px;
+	width: 755px;
+	border-left: 1px solid #ebebeb;
+}
+
+#random-quotes-wrp::after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+#random-quotes-wrp h3 {
+	text-align: center;
+}
+
+.quote {
+	margin: 10px; padding: 10px;
+	border: 1px solid #ebebeb;
+}
+
+.quote-info {
+	padding: 0 0 5px 10px;
+	color: #B0B0B0;
+	font-size: .95em;
+	border-bottom: 1px solid #ebebeb;
+}
+
+.quote-info a {
+	color: #7BA857;
+}
+
+.quote-info a:visited { color: #000; border: none; }
+
+.quote-info + p {
+	text-indent: 20px;
+	padding: 5px 5px 0 5px;
+}
