@@ -18,7 +18,7 @@ class Controller_Quote extends Controller {
 	{
 		if (!$this->post->save) return $this->render('add/main');
 		$quote = (new Quote)->addData()->setMessage('success', 'add');
-		$this->redirect('/quote?id_quote='.$quote->id);
+		$this->redirect('/quotes?id_quote='.$quote->id);
 	}
 	
 	public function action_category()

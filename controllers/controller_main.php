@@ -5,9 +5,9 @@ class Controller_Main extends Controller_Base {
     public function action_index()
 	{
 
-	    $favorites = (new Quote)->getFavorites();
+	    $quote = (new Quote)->getFavorite()->getRandom(4);
 		$categories = (new Category)->getMain();
-		$this->render('main/index', compact('favorites', 'categories'));
+		$this->render('main/index', compact('quote', 'categories'));
 	}
 
 	public function action_404()

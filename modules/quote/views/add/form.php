@@ -1,21 +1,21 @@
 <?php
-	$categories = Category::getMain();
+	$categories = (new Category)->getMain();
 	//$authors = Author::getAll();
 ?>
 
 <div id="form-quote-wrp">
-    <h2>Форма для добавления цитаты</h2>
+    <h2 class="center">Форма для добавления цитаты</h2>
     <form action="/quote/add" method="post">
         <!-- categories box -->
         <div class="form-box">
             <!-- category -->
             <div id="form-category-wrp">
                 <label>Категория:</label>
-                <select name="category">
+                <select name="id_cat">
 					<option value="0">Без категории</option>
 					<? foreach ($categories as $cat): ?>
 						<option value="<?=$cat->id?>"><?=$cat->name?></option>
-                    <? endforeach; ?>а
+                    <? endforeach; ?>
                 </select>
             </div>
 			
@@ -26,32 +26,31 @@
             </div>
         </div>
 		
-		<!-- author box -->
+		 <!-- author -->
         <div class="form-box">
-            <!-- author -->
-            <div id="form-author-wrp">
-                <label>Автор:</label>
-                <select name="author">
-					<? foreach ($authors as $author): ?>
-						<option value="<?=$author->id?>"><?=$author->sername?></option>
-                    <? endforeach; ?>
-                </select>
-            </div>
+			<label>Автор:</label>
+			<select name="id_author">
+				<option value="0">Без автора</option>
+				<? foreach ($authors as $author): ?>
+					<option value="<?=$author->id?>"><?=$author->sername?></option>
+				<? endforeach; ?>
+			</select>
         </div>
-		
-		<!-- date box -->
-        <div class="form-box">
-            <!-- date -->
-            <div id="form-author-wrp">
-                <label>Дата:</label>
-				<input type="text" name="date" id="datepicker">
-            </div>
+		<!-- book -->
+		<div class="form-box">
+			<label>Книга:</label>
+			<select name="id_book">
+				<option value="0">Не указана</option>
+				<? foreach ($books as $book): ?>
+					<option value="<?=$book->id?>"><?=$book->title?></option>
+				<? endforeach; ?>
+			</select>
         </div>
 
         <div class="form-box">
 			<!-- text quote -->
-			<div id="form-text-wrp">
-				<label>Текст:</label>
+			<div>
+				<label>Текст цитаты:</label>
 				<textarea name="text"></textarea>
 			</div>
 		</div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Апр 08 2019 г., 21:18
+-- Время создания: Апр 09 2019 г., 22:24
 -- Версия сервера: 5.5.53-log
 -- Версия PHP: 5.6.29
 
@@ -44,7 +44,7 @@ CREATE TABLE `authors` (
 
 CREATE TABLE `books` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
   `id_author` int(11) NOT NULL,
   `status` tinyint(2) NOT NULL DEFAULT '1'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -93,7 +93,7 @@ CREATE TABLE `favorites` (
 --
 
 INSERT INTO `favorites` (`id`, `id_quote`, `status`) VALUES
-(1, 1, 1),
+(1, 1, 0),
 (2, 2, 1);
 
 -- --------------------------------------------------------
@@ -118,7 +118,13 @@ CREATE TABLE `quotes` (
 
 INSERT INTO `quotes` (`id`, `text`, `id_author`, `id_book`, `id_cat`, `date`, `status`) VALUES
 (1, 'Сарказм и юмор между собой не связаны. Юмор проявление любви, сарказм – ненависти', 0, 0, 0, '', 1),
-(2, 'Решение экономических проблем не приносит счастье', 0, 0, 0, '', 1);
+(2, 'Решение экономических проблем не приносит счастье', 0, 0, 0, '', 1),
+(3, 'Правда в том, что нас имеют остальное детали', 0, 0, 0, '', 1),
+(4, 'Спешить медленно', 0, 0, 0, '', 1),
+(7, 'Несчастные люди не созидатели', 0, NULL, 0, '', 1),
+(5, 'История слуга действующей власти', 0, 0, 0, '', 1),
+(6, 'Многим важнее казаться, чем быть', 0, 0, 0, '', 1),
+(8, 'Если конкуренты закрыты, ты должен быть открытым', 0, NULL, 0, '', 1);
 
 -- --------------------------------------------------------
 
@@ -219,7 +225,7 @@ ALTER TABLE `favorites`
 -- AUTO_INCREMENT для таблицы `quotes`
 --
 ALTER TABLE `quotes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT для таблицы `quote_tags`
 --

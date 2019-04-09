@@ -19,4 +19,11 @@ class Favorite extends Model {
 //        self::perform($sql, $params);
 //    }
 
+	public function get()
+	{
+		$sql = 'SELECT `id_quote` FROM `favorites` WHERE `status` = :status';
+		$params = ['status' => STATUS_ACTIVE];
+		return self::perform($sql, $params)->fetchColumn();
+	}
+
 }

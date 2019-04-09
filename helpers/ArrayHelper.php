@@ -2,6 +2,7 @@
 
 class ArrayHelper {
 	
+	
 	public static function getSameValuesArray($array)
 	{
 		$array_same_values = [];
@@ -13,6 +14,13 @@ class ArrayHelper {
 		return $array_same_values;
 	}
 	
+	public static function getRandom($quantity, $min, $max)
+	{
+		for ($i = 0; $i < $quantity; $i++) {
+			$random[] = rand($min, $max);
+		}
+		return $random;
+	}
 	
 	
 }

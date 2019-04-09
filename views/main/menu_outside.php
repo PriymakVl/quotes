@@ -4,7 +4,7 @@
             <a href="/category/add">Добавить категорию</a>
         </li>
         <li>
-            <a href="/quote/ad">Добавить цитату</a>
+            <a href="/quote/add">Добавить цитату</a>
         </li>
         <li>
             <a href="/author/add">Добавить автора</a>
