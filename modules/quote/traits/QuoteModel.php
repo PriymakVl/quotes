@@ -11,10 +11,10 @@ trait QuoteModel {
 		self::perform($sql, $params);
 	}
 	
-	public function addDataModel()
+	public function addDataModel($params = false)
 	{
-		$params = self::selectParams(['id_cat', 'text', 'id_author']);
-		$sql = "INSERT INTO `quotes` (id_cat, id_author, text) VALUES (:id_cat, :id_author, :text)";
+		$params = $params ? $params : self::selectParams(['id_cat', 'text', 'id_author', 'id_book']);
+		$sql = "INSERT INTO `quotes` (id_cat, id_author, id_book, text) VALUES (:id_cat, :id_author, :id_book, :text)";
 		return self::insert($sql, $params);
 	}
 	

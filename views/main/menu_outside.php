@@ -12,5 +12,8 @@
 		<li>
             <a href="/add/book">Добавить книгу</a>
         </li>
+		<li>
+            <a href="/quote/add_file">Добавить файл</a>
+        </li>
     </ul>
 </div>

@@ -27,6 +27,13 @@ class Controller_Quote extends Controller {
 		debug($quotes);
 		$this->render('category', compact('quotes'));
 	}
+	
+	public function action_add_file()
+	{
+		if (!$this->post->save) return $this->render('add_file/main');
+		(new Quote)->addFile()->setMessageAddFile();
+		$this->redirect('/quotes');
+	}
 
 
 }
