@@ -1,6 +1,6 @@
 <?php
 	$categories = (new Category)->getMain();
-	//$authors = Author::getAll();
+	$authors = Author::getAll('authors');
 ?>
 
 <div id="form-quote-wrp">
@@ -32,7 +32,7 @@
 			<select name="id_author">
 				<option value="0">Без автора</option>
 				<? foreach ($authors as $author): ?>
-					<option value="<?=$author->id?>"><?=$author->sername?></option>
+					<option value="<?=$author->id?>"><?=$author->surname?></option>
 				<? endforeach; ?>
 			</select>
         </div>

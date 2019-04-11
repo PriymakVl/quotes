@@ -6,9 +6,9 @@
 			<label>Имя:</label>
 			<input type="text" name="first_name">
 			<label>Фамилия:</label>
-			<input type="text" name="first_name" requred>
+			<input type="text" name="last_name" requred>
 			<label>Отчество:</label>
-			<input type="text" name="first_name">
+			<input type="text" name="patronymic">
 		</div>
 		<!-- date -->
 		<div class="form-box">

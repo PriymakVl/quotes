@@ -18,7 +18,9 @@ class Author extends Model {
 	
 	public function addDataModel()
 	{
-		$params = self::selectParams(['first_name', 'last_name', 'patromn
+		$params = self::selectParams(['first_name', 'last_name', 'patronymic']);
+		$sql = 'INSERT INTO `authors` (first_name, last_name, patronymic) VALUES (:first_name, :last_name, :patronymic)';
+		return self::insert($sql, $params);
 	}
 	
 	
