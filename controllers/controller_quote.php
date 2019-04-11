@@ -31,7 +31,7 @@ class Controller_Quote extends Controller {
 	public function action_add_file()
 	{
 		if (!$this->post->save) return $this->render('add_file/main');
-		(new Quote)->addFile()->setMessageAddFile();
+		(new Quote)->addFile()->setAddFileMessage();
 		$this->redirect('/quotes');
 	}
 

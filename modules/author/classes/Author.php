@@ -16,5 +16,10 @@ class Author extends Model {
 		return $this;
 	}
 	
+	public function addDataModel()
+	{
+		$params = self::selectParams(['first_name', 'last_name', 'patromn
+	}
+	
 	
 }

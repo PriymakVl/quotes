@@ -19,7 +19,7 @@ trait QuoteAddFile {
 		return $quotes;
 	}
 	
-	private function addQuotes()
+	private function addQuotes($quotes)
 	{
 		$params = self::selectParams(['id_author', 'id_cat', 'id_book']);
 		foreach ($quotes as $quote) {
