@@ -7,5 +7,8 @@
 
 </div>
 
+<!-- js file -->
+<script src="/web/js/datepicker.js"></script>
+
 
 

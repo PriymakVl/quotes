@@ -6,14 +6,16 @@
 			<label>Имя:</label>
 			<input type="text" name="first_name">
 			<label>Фамилия:</label>
-			<input type="text" name="last_name" requred>
+			<input type="text" name="last_name">
 			<label>Отчество:</label>
 			<input type="text" name="patronymic">
 		</div>
 		<!-- date -->
 		<div class="form-box">
+			<label>ФИО:</label>
+			<input type="text" name="surname" requred>
 			<label>Дата рождения:</label>
-			<input type="text" id="datepicker">
+			<input type="text" class="datepicker" name="date_birth">
 		</div>
         <!-- buttons -->
         <div class="button-box">

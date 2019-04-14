@@ -1,14 +1,14 @@
 <?php
 
-class Author extends Model {
+class Book extends Model {
 	
-	use AuthorParam;
+	use BookParam;
 	
 	public function __construct($id = false)
 	{
-		$this->tableName = 'authors';
+		$this->tableName = 'books';
 		parent::__construct($id);
-		$this->message->section = 'author';
+		$this->message->section = 'book';
 	}
 
 
@@ -20,7 +20,7 @@ class Author extends Model {
 	public function addDataModel()
 	{
 		$params = $this->addDataParam();
-		$sql = 'INSERT INTO `authors` (first_name, last_name, patronymic, surname, date_birth) VALUES (:first_name, :last_name, :patronymic, :surname, :date_birth)';
+		$sql = 'INSERT INTO `books` (title, id_author, description) VALUES (:title, :id_author, :description)';
 		return self::insert($sql, $params);
 	}
 	
