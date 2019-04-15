@@ -33,6 +33,7 @@ function autoload_class($class_name)
 	if (strpos($class_name, 'Quote') !== false) $module_name = 'quote';
 	if (strpos($class_name, 'Category') !== false) $module_name = 'category';
 	if (strpos($class_name, 'Author') !== false) $module_name = 'author';
+	if (strpos($class_name, 'Book') !== false) $module_name = 'book';
 	if (!$module_name) return;
 	if (file_exists('./modules/'.$module_name.'/classes/'.$class_name.'.php')) require './modules/'.$module_name.'/classes/'.$class_name.'.php';
 	else require './modules/'.$module_name.'/traits/'.$class_name.'.php';

@@ -10,7 +10,7 @@
             <a href="/author/add">Добавить автора</a>
         </li>
 		<li>
-            <a href="/add/book">Добавить книгу</a>
+            <a href="/book/add">Добавить книгу</a>
         </li>
 		<li>
             <a href="/quote/add_file">Добавить файл</a>

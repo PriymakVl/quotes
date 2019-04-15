@@ -6,9 +6,9 @@ trait QuoteModel {
 
 	public function getAllByIdCategoryModel()
 	{
-		$params = ['id_cat' => $this->get->id_cat, 'status' => STATUS_ACTIVE];
+		$params = ['id_cat' => trim($this->get->id_cat), 'status' => STATUS_ACTIVE];
 		$sql = "SELECT * FROM `quotes` WHERE `id_cat` = :id_cat AND `status` = :status";
-		self::perform($sql, $params);
+		return self::perform($sql, $params)->fetchAll();
 	}
 	
 	public function addDataModel($params = false)

@@ -24,7 +24,6 @@ class Controller_Quote extends Controller {
 	public function action_category()
 	{
 		$quotes = (new Quote)->getForCategory();
-		debug($quotes);
 		$this->render('category', compact('quotes'));
 	}
 	

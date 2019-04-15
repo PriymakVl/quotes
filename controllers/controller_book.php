@@ -6,6 +6,7 @@ class Controller_Book extends Controller {
 		parent::__construct();
 		$this->view->pathFolder = './modules/book/views/';
 		$this->message->section = 'book';
+		$this->view->title = 'Книги';
 	}
 	
     public function action_index()
@@ -17,7 +18,7 @@ class Controller_Book extends Controller {
 	public function action_add()
 	{
 		if (!$this->post->save) return $this->render('add/main');
-		$book = (new Author)->addData()->setMessage('success', 'add');
+		$book = (new Book)->addData()->setMessage('success', 'add');
 		$this->redirect('/book?id_book='.$book->id);
 	}
 
