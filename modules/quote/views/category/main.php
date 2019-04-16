@@ -1,4 +1,6 @@
 <!-- css files -->
+<link href="/web/css/table.css" rel="stylesheet">
+<link href="/modules/quote/css/category.css" rel="stylesheet">
 
 <div id="content">
 

@@ -24,7 +24,7 @@ class Controller_Quote extends Controller {
 	public function action_category()
 	{
 		$quotes = (new Quote)->getForCategory();
-		$this->render('category', compact('quotes'));
+		$this->render('category/main', compact('quotes'));
 	}
 	
 	public function action_add_file()

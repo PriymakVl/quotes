@@ -10,3 +10,4 @@ function debug($array, $exit = true)
     echo '<br><span style="color: red;">end script</span><br>';
     if ($exit) exit();    
 }
+
