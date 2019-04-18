@@ -6,13 +6,6 @@ class Category extends CategoryBase {
 	
 	public $parent;
 	
-	public function __construct($id = false)
-	{
-		parent::__construct($id);
-		$this->tableName = 'categories';
-		$this->message->section = 'category';
-	}
-	
 	public function addData()
 	{
 		$id_cat = $this->addDataModel();

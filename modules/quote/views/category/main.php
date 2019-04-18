@@ -4,8 +4,8 @@
 
 <div id="content">
 
-    <!-- quote search -->
-    <? //include_once('search.php'); ?>
+    <!-- info -->
+    <? include_once('info.php'); ?>
 
     <!-- message -->
     <? include_once('./views/total/message.php'); ?>

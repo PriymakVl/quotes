@@ -1,0 +1,1 @@
+<h2>Категория: <span><?=$category->name?><span></h2>
