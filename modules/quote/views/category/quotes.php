@@ -10,12 +10,12 @@
     <? if ($quotes): ?>
         <?foreach ($quotes as $quote): ?>
             <tr>
-                <td>
+                <td <? if ($quote->id == $this->get->id_active) echo 'class="bg-green"'; ?>>
 					<a href="/quote?id_quote=<?$quote->id?>"><?=$number?></a>
                 </td>
                 <td><?=$quote->text?></td>
 				<td>
-					<a href="#" class="quote-rating"><?=$quote->rating ? $quote->rating : 0?></a>
+					<a href="#" class="quote-rating" id_cat="<?=$quote->id_cat ? $quote->id_cat : 0?>" id_quote="<?=$quote->id?>"><?=$quote->rating ? $quote->rating : 0?></a>
 				</td>
             </tr>
 			<? $number++; ?>

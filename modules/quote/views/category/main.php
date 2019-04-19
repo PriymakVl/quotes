@@ -17,4 +17,5 @@
 </div>
 
 <!-- js files -->
+<script src="/modules/quote/js/edit_rating_quote.js"></script>
 

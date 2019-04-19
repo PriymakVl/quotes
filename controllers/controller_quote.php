@@ -34,6 +34,12 @@ class Controller_Quote extends Controller {
 		(new Quote)->addFile()->setAddFileMessage();
 		$this->redirect('/quotes');
 	}
+	
+	public function action_edit_rating()
+	{
+		$quote = (new Quote)->setData($this->get->id_quote)->setRating($this->get->rating)->setMessage('success', 'edit_rating');
+		$this->redirect('/quote/category?id_cat='.$this->get->id_cat.'&id_active='.$quote->id);
+	}
 
 
 }

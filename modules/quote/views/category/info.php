@@ -1,1 +1,1 @@
-<h2>Категория: <span><?=$category->name?><span></h2>
+<h2>Категория: <span><?= $category->data ? $category->name : 'Без категории'?><span></h2>
