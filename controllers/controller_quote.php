@@ -10,8 +10,9 @@ class Controller_Quote extends Controller {
 	
     public function action_index()
 	{
-	    $quote = (new Quote)->setData($this->get->id_quote);
-		$this->render('index', compact('quote'));
+	    $quote = (new Quote)->setData($this->get->id_quote)->getCategory()->getAuthor()->getBook();
+		// debug($quote->category);
+		$this->render('index/main', compact('quote'));
 	}
 	
 	public function action_add()
@@ -38,7 +39,7 @@ class Controller_Quote extends Controller {
 	public function action_edit_rating()
 	{
 		$quote = (new Quote)->setData($this->get->id_quote)->setRating($this->get->rating)->setMessage('success', 'edit_rating');
-		$this->redirect('/quote/category?id_cat='.$this->get->id_cat.'&id_active='.$quote->id);
+		$this->redirect('/quotes/quote/category?id_cat='.$this->get->id_cat.'&id_active='.$quote->id);
 	}
 
 

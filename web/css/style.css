@@ -13,8 +13,31 @@
 	text-align: center;
 }
 
+.left {
+	text-align: left;
+}
+
 .bg-green {
 	background: green;
+}
+
+/*message*/
+.message-wrp {
+    margin: 10px 0;
+}
+
+.message {
+    color: #fff;
+    padding: 4px 8px;
+    font-weight: bold;
+}
+
+.message-error {
+    background: #901830;
+}
+
+.message-success {
+    background: green;
 }
 
 

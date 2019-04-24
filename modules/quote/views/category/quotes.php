@@ -11,9 +11,9 @@
         <?foreach ($quotes as $quote): ?>
             <tr>
                 <td <? if ($quote->id == $this->get->id_active) echo 'class="bg-green"'; ?>>
-					<a href="/quote?id_quote=<?$quote->id?>"><?=$number?></a>
+					<a href="/quote?id_quote=<?=$quote->id?>"><?=$number?></a>
                 </td>
-                <td><?=$quote->text?></td>
+                <td class="left"><?=$quote->text?></td>
 				<td>
 					<a href="#" class="quote-rating" id_cat="<?=$quote->id_cat ? $quote->id_cat : 0?>" id_quote="<?=$quote->id?>"><?=$quote->rating ? $quote->rating : 0?></a>
 				</td>

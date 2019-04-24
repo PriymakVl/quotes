@@ -6,6 +6,9 @@ class Quote extends Model {
 	
 	public $favorite;
 	public $random;
+	public $category;
+	public $author;
+	public $book;
 	
 	public function __construct($id = false)
 	{
@@ -29,6 +32,26 @@ class Quote extends Model {
 		}
 		return $this;
 	}
+	
+	public function getCategory()
+	{
+		if ($this->id_cat) $this->category = (new Category)->setData($this->id_cat);
+		else $this->category = (object) ['name' => 'Без названия'];
+		return $this;
+	}
+	
+	public function getAuthor()
+	{
+		if ($this->id_author) $this->author = (new Author)->setData($this->id_author);
+		return $this;
+	}
+	
+	public function getBook()
+	{
+		if ($this->id_book) $this->book = (new Book)->setData($this->id_book);
+		return $this;
+	}
+	
 	
 
 

@@ -7,7 +7,7 @@ trait QuoteModel {
 	public function getAllByIdCategoryModel()
 	{
 		$params = ['id_cat' => trim($this->get->id_cat), 'status' => STATUS_ACTIVE];
-		$sql = "SELECT * FROM `quotes` WHERE `id_cat` = :id_cat AND `status` = :status";
+		$sql = "SELECT * FROM `quotes` WHERE `id_cat` = :id_cat AND `status` = :status ORDER BY rating DESC";
 		return self::perform($sql, $params)->fetchAll();
 	}
 	
