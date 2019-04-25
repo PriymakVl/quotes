@@ -8,14 +8,15 @@ class Route
 	public static function start()
 	{
 		// контроллер и действие по умолчанию
-		//self::$controller_name = DEFAULT_CONTROLLER_NAME;
-		//self::$action_name = DEFAULT_ACTION_NAME;
+		self::$controller_name = DEFAULT_CONTROLLER_NAME;
+		self::$action_name = DEFAULT_ACTION_NAME;
 		
 		//убираем из url get параметры
 		$url = explode('?', $_SERVER['REQUEST_URI'], 2);
+
 		//разбиваем url
 		$routes = explode('/', $url[0]);
-
+	
 		// получаем имя контроллера
 		if ( !empty($routes[1]) )
 		{	
@@ -27,7 +28,7 @@ class Route
 		{
 			self::$action_name = $routes[2];
 		}
-
+debug($routes);
 		// добавляем префиксы
 		self::$controller_name = 'Controller_'.self::$controller_name;
 		self::$action_name = 'action_'.self::$action_name;

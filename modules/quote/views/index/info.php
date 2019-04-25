@@ -10,6 +10,18 @@
 		<td>Категория</td>
 		<td class="left"><?=$quote->category->name?></td>
 	</tr
+	<!-- rating -->
+	<tr>
+		<td>2</td>
+		<td>Рейтинг</td>
+		<td class="left"><?=$quote->rating?></td>
+	</tr>
+	<!-- text quote -->
+	<tr>
+		<td>3</td>
+		<td>Текст цитаты</td>
+		<td class="left"><?=$quote->text?></td>
+	</tr>
 	<!-- author -->
 	<? if ($quote->author): ?>
 		<tr>
@@ -26,10 +38,5 @@
 			<td class="left"><?=$quote->book->tilte?></td>
 		</tr>
 	<? endif; ?>
-	<!-- rating -->
-	<tr>
-		<td>4</td>
-		<td>Рейтинг</td>
-		<td class="left"><?=$quote->rating?></td>
-	</tr>
+	
 </table>

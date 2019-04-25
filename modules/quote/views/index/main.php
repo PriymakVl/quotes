@@ -1,5 +1,6 @@
 <!-- css files -->
 <link rel="stylesheet" href="/modules/quote/css/index.css">
+<link href="/web/css/table.css" rel="stylesheet">
 
 <div id="content">
 
@@ -19,5 +20,6 @@
 </div>
 
 <!-- js files -->
+<script src="/modules/quote/js/delete_quote.js"></script>
 
 
