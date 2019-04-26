@@ -1,6 +1,7 @@
 <?php
-	$categories = Category::getMain();
-	//$authors = Author::getAll();
+	$categories = (new Category)->getMain();
+	$authors = Author::getAll('authors');
+	$books = Book::getAll('books');
 ?>
 
 <div id="form-quote-wrp">
@@ -14,7 +15,7 @@
                 <select name="category">
 					<option value="0">Без категории</option>
 					<? foreach ($categories as $cat): ?>
-						<option value="<?=$cat->id?>"><?=$cat->name?></option>
+						<option value="<?=$cat->id?>" <?if($cat->id==$quote->id_cat)echo'selected';?>><?=$cat->name?></option>
                     <? endforeach; ?>а
                 </select>
             </div>
@@ -32,18 +33,21 @@
                 <label>Автор:</label>
                 <select name="author">
 					<? foreach ($authors as $author): ?>
-						<option value="<?=$author->id?>"><?=$author->sername?></option>
+						<option value="<?=$author->id?>" <?if($author->id==$quote->id_author)echo'selected';?>><?=$author->sername?></option>
                     <? endforeach; ?>
                 </select>
             </div>
         </div>
 		
-		<!-- date box -->
+		<!-- book box -->
         <div class="form-box">
-            <!-- date -->
             <div id="form-author-wrp">
-                <label>Дата:</label>
-				<input type="text" name="date" id="datepicker">
+                <label>Книга:</label>
+                <select name="author">
+					<? foreach ($books as $book): ?>
+						<option value="<?=$book->id?>" <?if($book->id==$quote->id_book)echo'selected';?>><?=$book->title?></option>
+                    <? endforeach; ?>
+                </select>
             </div>
         </div>
 
@@ -51,7 +55,7 @@
 			<!-- text quote -->
 			<div id="form-text-wrp">
 				<label>Текст:</label>
-				<textarea name="text"></textarea>
+				<textarea name="text"><?=$quote->text?></textarea>
 			</div>
 		</div>
 

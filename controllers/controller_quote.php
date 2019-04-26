@@ -42,9 +42,16 @@ class Controller_Quote extends Controller {
 		$this->redirect('/quotes/quote/category?id_cat='.$this->get->id_cat.'&id_active='.$quote->id);
 	}
 	
+	public function action_edit()
+	{
+		$quote = (new Quote)->setData($this->get->id_quote);
+		if (!$this->post->save) $this->render('edit/main', compact('quote'));
+		$quote->edit()->setMessage('success', 'edit');
+		$this->redirectPreviously();
+	}
+	
 	public function action_delete()
 	{
-		debug();
 		$quote = (new Quote)->setData($this->get->id_quote)->delete()->setMessage('success', 'delete');
 		$this->redirect('/quotes');
 	}

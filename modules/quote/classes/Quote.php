@@ -52,6 +52,12 @@ class Quote extends Model {
 		return $this;
 	}
 	
+	public function edit()
+	{
+		$this->editModel();
+		return $this;
+	}
+	
 	
 
 

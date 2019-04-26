@@ -4,7 +4,7 @@ trait CategoryModel {
 	
 	use CategoryParam;
 	
-	public function getMain()
+	public function getMainModel()
 	{
 		$params = ['status' => STATUS_ACTIVE, 'id_parent' => self::ID_PARENT_MAIN_CATEGORY];
 		$sql = "SELECT * FROM `categories` WHERE `id_parent` = :id_parent AND `status` = :status";

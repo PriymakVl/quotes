@@ -28,7 +28,6 @@ class Route
 		{
 			self::$action_name = $routes[2];
 		}
-debug($routes);
 		// добавляем префиксы
 		self::$controller_name = 'Controller_'.self::$controller_name;
 		self::$action_name = 'action_'.self::$action_name;

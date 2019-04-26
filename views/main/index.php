@@ -9,6 +9,9 @@
 	<!-- favorite quote -->
 	<? include "favorite_quote.php" ?>
 	
+	<!-- message -->
+	<? include_once('./views/total/message.php'); ?>
+	
 	<!-- category menu -->
 	<? include "categories_menu.php" ?>
 	
