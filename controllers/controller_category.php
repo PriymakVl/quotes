@@ -18,7 +18,13 @@ class Controller_Category extends Controller {
 	{
 		if (!$this->post->save) return $this->render('add/main');
 		$category = (new Category)->addData()->setMessage('success', 'add');
-		$this->redirect('/category?id_cat='.$category->id);
+		$this->redirect('category?id_cat='.$category->id);
+	}
+	
+	public function action_list()
+	{
+		$parent = (new Category)->setData($this->get->id_cat)->getSubcateory();
+		$this->render('list/main', compact('parent');
 	}
 	
 

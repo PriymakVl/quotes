@@ -4,6 +4,8 @@ class CategoryBase extends Model {
 	
 	const ID_PARENT_MAIN_CATEGORY = 0;
 	
+	public $sub; //subcategory
+	
 	public function __construct($id = false)
 	{
 		$this->tableName = 'categories';

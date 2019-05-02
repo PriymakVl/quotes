@@ -23,6 +23,13 @@ class Category extends CategoryBase {
 		$items = $this->getMainModel();
 		if($items) return ObjectHelper::createArray($items, 'Category', ['setData']);
 	}
+	
+	public function getSubcategories()
+	{
+		$items = $this->getSubcategoriesModel();
+		if ($items) $this->sub = ObjectHelper::createArray($items, 'Category', ['setData']);
+		return $this;
+	}
 
 
 

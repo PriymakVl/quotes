@@ -17,5 +17,12 @@ trait CategoryModel {
 		$sql = 'INSERT INTO `categories` (name, id_parent) VALUES (:name, :id_parent)';
 		return self::insert($sql, $params);
 	}
+	
+	public function getSubcategoriesModel()
+	{
+		$params = ['id_parent' => $this->id, 'status' => STATUS_ACTIVE];
+		$sql = "SELECT * FROM `categories` WHERE `id_parent` = :id_parent AND `status` = :status";
+		return self::perform($sql, $params)->fetchAll();
+	}
 
 }

@@ -24,7 +24,8 @@ class Controller_Quote extends Controller {
 	
 	public function action_category()
 	{
-		$category = new Category($this->get->id_cat);
+		$category = (new Category)->setData($this->get->id_cat)->getSubcategories();
+		if ($category->sub) return $this->redirect('category/list?id_cat='.$category->id);
 		$quotes = (new Quote)->getForCategory();
 		$this->render('category/main', compact('quotes', 'category'));
 	}
