@@ -22,7 +22,7 @@
 			</tr>
 			<? $number++; ?>
         <? endforeach; ?>
-	<? else; ?>
+	<? else: ?>
 		<tr><td colspan="3" class="red">Нет подкатегорий</td></tr>
-	<? elseif: ?>
+	<? endif; ?>
 </table>

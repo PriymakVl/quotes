@@ -12,8 +12,10 @@
 
     <!-- quotes -->
     <? include_once('quotes.php'); ?>
-
-
+	
+	<!-- menu -->
+    <? include_once('menu.php'); ?>
+	
 </div>
 
 <!-- js files -->

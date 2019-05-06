@@ -5,7 +5,7 @@
 
     <!-- message -->
     <? include './views/total/message.php'; ?>
-	<h2>Покатегории категории </span class="green"><?=$category->name?></span>
+	<h2>Покатегории категории </span class="green"><?=$parent->name?></span>
     <!-- category list -->
 	<? include 'categories.php'; ?>
 
