@@ -1,6 +1,6 @@
 <div id="favorite-quote">
-	<? if ($quote->favorite): ?>
-		<?=$quote->favorite->text?>
+	<? if ($quotes->favorite): ?>
+		<?=$quotes->favorite->text?>
 	<? else: ?>
 		<span>Put your favorite quote here...<span>
 	<? endif; ?>

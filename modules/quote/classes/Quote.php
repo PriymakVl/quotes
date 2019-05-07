@@ -28,7 +28,8 @@ class Quote extends Model {
 	{
 		$random = array_unique(ArrayHelper::getRandom(4, 1, self::getLastId('quotes')));
 		foreach ($random as $id_quote) {
-			$this->random[] = new self($id_quote);
+			$item = $this->getByIdModel($id_quote);
+			if ($item->status == STATUS_ACTIVE) $this->random[] = new self($id_quote);
 		}
 		return $this;
 	}

@@ -1,6 +1,6 @@
 <div id="form-category-wrp">
     <h3>Форма для добавления категории</h3>
-    <form action="/category/add" method="post">
+    <form action="/category/add?id_cat=<?=$this->get->id_cat?>" method="post">
 		
 		<!-- category -->
         <div class="form-box">

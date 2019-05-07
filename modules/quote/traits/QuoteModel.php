@@ -10,6 +10,12 @@ trait QuoteModel {
 		$sql = "SELECT * FROM `quotes` WHERE `id_cat` = :id_cat AND `status` = :status ORDER BY rating DESC";
 		return self::perform($sql, $params)->fetchAll();
 	}
+	//without status for check random
+	public function getByIdModel($id_quote)
+	{
+		$sql = "SELECT * FROM `quotes` WHERE `id` = :id";
+		return self::perform($sql, ['id' => $id_quote])->fetch();
+	}
 	
 	public function addDataModel($params = false)
 	{
