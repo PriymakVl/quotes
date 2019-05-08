@@ -2,7 +2,10 @@
 
 class Book extends Model {
 	
-	use BookParam;
+	public $author;
+	public $category;
+	
+	use BookParam, BookList;
 	
 	public function __construct($id = false)
 	{
@@ -22,6 +25,18 @@ class Book extends Model {
 		$params = $this->addDataParam();
 		$sql = 'INSERT INTO `books` (title, id_author, description) VALUES (:title, :id_author, :description)';
 		return self::insert($sql, $params);
+	}
+	
+	public function getAuthor()
+	{
+		if ($this->id_author) $this->author = new Author($this->id_author);
+		return $this;
+	}
+	
+	public function getCategory()
+	{
+		if ($this->id_cat) $this->category = new Author($this->id_cat);
+		return $this;
 	}
 	
 	

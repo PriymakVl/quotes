@@ -28,8 +28,8 @@ class Controller_Category extends Controller {
 	
 	public function action_list()
 	{
-		$parent = (new Category)->setData($this->get->id_cat)->getSubcategories();
-		$this->render('list/main', compact('parent'));
+		$category = (new Category)->setData($this->get->id_cat)->getSubcategories();
+		$this->render('list/main', compact('category'));
 	}
 	
 
