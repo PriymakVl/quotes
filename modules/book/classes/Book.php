@@ -39,5 +39,14 @@ class Book extends Model {
 		return $this;
 	}
 	
+	public function delete()
+	{
+		parent::delete();
+		$quotes = (new Quote)->getByIdBookModel($this->id);
+		foreach ($quotes as $quote) {
+			(new Quote)->updateIdBookModel(0);
+		}
+	}
+	
 	
 }

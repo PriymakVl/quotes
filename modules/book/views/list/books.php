@@ -12,15 +12,15 @@
         <?foreach ($books as $book): ?>
             <tr>
                 <td>
-					<a href="/books?id_=<?=$book->id?>"><?=$number?></a>
+					<a href="/book?id_book=<?=$book->id?>"><?=$number?></a>
 				</td>
                 <td>
                     <?=$book->title?>
                 </td>
                 <td>
-					<?=$book->author?>
+					<?=$book->author ? $book->author->surname : ''?>
 				</td>
-				<td><?=$book->category?></td>
+				<td><?=$book->category ? $book->category->name : ''?></td>
 			</tr>
 			<? $number++; ?>
         <? endforeach; ?>

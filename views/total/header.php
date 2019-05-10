@@ -11,7 +11,7 @@
 				<a href="/author/list">Авторы</a>
 			</li>
 			<li>
-				<a href="/books/list">Книги</a>
+				<a href="/book/list">Книги</a>
 			</li>
 		</ul>
 	</div>

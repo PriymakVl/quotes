@@ -11,3 +11,11 @@ function debug($array, $exit = true)
     if ($exit) exit();    
 }
 
+function debugProp($objects, $name_property) 
+{
+	$properties = [];
+    foreach ($objects as $object) {
+		$properties[] = $object->$name_property;
+	}  
+	debug($properties);
+}

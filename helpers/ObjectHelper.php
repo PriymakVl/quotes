@@ -56,6 +56,9 @@ class ObjectHelper {
 		return $objects;
 	}
 	
+	public static function updatePropertyforArray()
+	{}
+	
 	
 	
 }
