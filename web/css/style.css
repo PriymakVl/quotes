@@ -21,6 +21,14 @@
 	background: green;
 }
 
+.red {
+	color: red;
+}
+
+.green {
+	color: green;
+}
+
 /*message*/
 .message-wrp {
     margin: 10px 0;

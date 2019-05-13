@@ -30,6 +30,20 @@ class Category extends CategoryBase {
 		if ($items) $this->sub = ObjectHelper::createArray($items, 'Category', ['setData']);
 		return $this;
 	}
+	
+	public function countQuotes()
+	{
+		$quotes = (new Quote)->getByIdCategoryModel($this->id);
+		if ($quotes) $this->qtyQuotes = count($quotes);
+		return $this;
+	}
+	
+	public function countSubcategories()
+	{
+		if (!$this->sub) $this->getSubcategories();
+		if ($this->sub) $this->qtySub = count($this->sub);
+		return $this;
+	}
 
 
 

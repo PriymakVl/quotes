@@ -1,5 +1,5 @@
-<!-- css files
-<link rel="stylesheet" href="/modules/category/css/index.css">  -->
+<!-- css files  -->
+<link rel="stylesheet" href="/web/css/table.css">
 
 <div id="content">
 

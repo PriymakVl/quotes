@@ -18,6 +18,8 @@ class Controller_Quote extends Controller {
 	public function action_add()
 	{
 		if (!$this->post->save) return $this->render('add/main');
+		$cat = (new Category)->setData($this->get->id_cat)->getSubcategories();
+		if ($cat->sub) return $this->setMessage('error', 'is_sub')->redirectPreviously();
 		$quote = (new Quote)->addData()->setMessage('success', 'add');
 		$this->redirect('/quotes?id_quote='.$quote->id);
 	}

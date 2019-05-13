@@ -6,7 +6,7 @@ trait QuoteTotal  {
 	
 	public function getForCategory()
 	{
-		$items = $this->getAllByIdCategoryModel();
+		$items = $this->getByIdCategoryModel();
 		if ($items) return ObjectHelper::createArray($items, 'Quote', ['setData']);
 	}
 	

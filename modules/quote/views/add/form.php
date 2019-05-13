@@ -10,13 +10,18 @@
         <div class="form-box">
             <!-- category -->
             <div id="form-category-wrp">
-                <label>Категория:</label>
-                <select name="id_cat">
-					<option value="0">Без категории</option>
-					<? foreach ($categories as $cat): ?>
-						<option value="<?=$cat->id?>"><?=$cat->name?></option>
-                    <? endforeach; ?>
-                </select>
+				<label>Категория: <span class="green"><?=(new Category)->setData($this->get->id_cat)->name?></span></label>
+				<? if ($this->get->id_cat): ?>
+					<input type="hidden" name="id_cat" value="<?=$this->get->id_cat?>">
+				<? else: ?>
+					<label>Категория:</label>
+					<select name="id_cat">
+						<option value="0">Без категории</option>
+						<? foreach ($categories as $cat): ?>
+							<option value="<?=$cat->id?>"><?=$cat->name?></option>
+						<? endforeach; ?>
+					</select>
+				<? endif; ?>
             </div>
 			
 			<!-- sub category -->
