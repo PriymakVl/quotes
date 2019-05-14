@@ -33,7 +33,7 @@
                 <label>Автор:</label>
                 <select name="author">
 					<? foreach ($authors as $author): ?>
-						<option value="<?=$author->id?>" <?if($author->id==$quote->id_author)echo'selected';?>><?=$author->sername?></option>
+						<option value="<?=$author->id?>" <?if($author->id==$quote->id_author)echo'selected';?>><?=$author->surname?></option>
                     <? endforeach; ?>
                 </select>
             </div>

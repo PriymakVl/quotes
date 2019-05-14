@@ -23,20 +23,16 @@
 		<td class="left"><?=$quote->text?></td>
 	</tr>
 	<!-- author -->
-	<? if ($quote->author): ?>
-		<tr>
-			<td>2</td>
-			<td>Автор</td>
-			<td class="left"><?=$quote->author?></td>
-		</tr>
-	<? endif; ?>
+	<tr>
+		<td>4</td>
+		<td>Автор</td>
+		<td class="left"><?=$quote->author?$quote->author->surname:'<span class="red">Не указан</span>'?></td>
+	</tr>
 	<!-- book -->
-	<? if ($quote->book): ?>
-		<tr>
-			<td>3</td>
-			<td>Книга</td>
-			<td class="left"><?=$quote->book->tilte?></td>
-		</tr>
-	<? endif; ?>
+	<tr>
+		<td>5</td>
+		<td>Книга</td>
+		<td class="left"><?=$quote->book?$quote->book->tile:'<span class="red">Не указан</span>'?></td>
+	</tr>
 	
 </table>

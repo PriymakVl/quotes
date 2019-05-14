@@ -16,7 +16,7 @@
 		<td>Родительская категория</td>
 		<td>
 			<? if ($category->parent): ?>
-				<a href="/category?id_cat<?=$category->parent->id?>"><?=$category->parent->name?></a>
+				<a href="/category/list?id_cat=<?=$category->parent->id?>"><?=$category->parent->name?></a>
 			<? else: ?>
 				<span class="red">нет</span>
 			<? endif; ?>
@@ -40,7 +40,7 @@
 		<td>Количество подкатегорий</td>
 		<td>
 			<? if ($category->qtySub): ?>
-				<a href="/quote/category?id_cat=<?=$category->id?>"><?=$category->qtySub?></a>
+				<a href="/quote/category/list?id_cat=<?=$category->id?>"><?=$category->qtySub?></a>
 			<? else: ?>
 				<span class="red">нет</span>
 			<? endif; ?>

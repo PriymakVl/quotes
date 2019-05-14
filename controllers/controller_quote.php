@@ -11,17 +11,16 @@ class Controller_Quote extends Controller {
     public function action_index()
 	{
 	    $quote = (new Quote)->setData($this->get->id_quote)->getCategory()->getAuthor()->getBook();
-		// debug($quote->category);
 		$this->render('index/main', compact('quote'));
 	}
 	
 	public function action_add()
 	{
 		if (!$this->post->save) return $this->render('add/main');
-		$cat = (new Category)->setData($this->get->id_cat)->getSubcategories();
+		$cat = (new Category)->setData($this->post->id_cat)->getSubcategories();
 		if ($cat->sub) return $this->setMessage('error', 'is_sub')->redirectPreviously();
 		$quote = (new Quote)->addData()->setMessage('success', 'add');
-		$this->redirect('/quotes?id_quote='.$quote->id);
+		$this->redirect('quote?id_quote='.$quote->id);
 	}
 	
 	public function action_category()
@@ -48,7 +47,7 @@ class Controller_Quote extends Controller {
 	public function action_edit()
 	{
 		$quote = (new Quote)->setData($this->get->id_quote);
-		if (!$this->post->save) $this->render('edit/main', compact('quote'));
+		if (!$this->post->save) return $this->render('edit/main', compact('quote'));
 		$quote->edit()->setMessage('success', 'edit');
 		$this->redirectPreviously();
 	}
