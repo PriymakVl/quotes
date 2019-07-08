@@ -25,8 +25,8 @@ class Controller_Quote extends Controller {
 	
 	public function action_category()
 	{
-		$category = (new Category)->setData($this->get->id_cat)->getSubcategories();
-		if ($category->sub) return $this->redirect('category/list?id_cat='.$category->id);
+		$category = $this->get->id_cat ? (new Category)->setData($this->get->id_cat)->getSubcategories() : null;
+		if ($category && $category->sub) return $this->redirect('category/list?id_cat='.$category->id);
 		$quotes = (new Quote)->getForCategory();
 		$this->render('category/main', compact('quotes', 'category'));
 	}
@@ -56,6 +56,14 @@ class Controller_Quote extends Controller {
 	{
 		$quote = (new Quote)->setData($this->get->id_quote)->delete()->setMessage('success', 'delete');
 		$this->redirect('/quotes');
+	}
+
+	public function action_search()
+	{
+		$quotes = (new Quote)->search();
+		if (!$quotes) return $this->setMessage('error', 'search_error')->redirectPrevious();
+		if (count($quotes) == 1) return $this->setMessage('success', 'search_one')->redirect('quote?id_quote='.$quotes[0]->id);
+		$this->setMessage('success', 'search_many')->render('search/main', compact('terms'));
 	}
 
 
