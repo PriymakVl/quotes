@@ -23,7 +23,8 @@ class Book extends Model {
 	public function addDataModel()
 	{
 		$params = $this->addDataParam();
-		$sql = 'INSERT INTO `books` (title, id_author, description) VALUES (:title, :id_author, :description)';
+		$sql = 'INSERT INTO `books` (title, id_author, description, id_cat, rating) 
+		VALUES (:title, :id_author, :description, :id_cat, :rating)';
 		return self::insert($sql, $params);
 	}
 	

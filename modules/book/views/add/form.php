@@ -1,5 +1,6 @@
 <?php
 	$authors = (new Author)->getAll('authors');
+	$cats = (new Category)->getAll('categories');
 ?>
 
 <div id="form-category-wrp">
@@ -25,6 +26,21 @@
 			<label>Описание книги:</label>
 			<textarea name="description"></textarea>
 		</div>
+		<!-- rating book -->
+		<div class="form-box">
+			<label>Рейтинг книги:</label>
+			<input type="text" name="rating">
+		</div>
+		<!-- category -->
+        <div class="form-box">
+			<label>Категория:</label>
+			<select name="id_cat">
+				<option value="">Не выбрана</option>
+				<? foreach ($cats as $cat): ?>
+					<option value="<?=$cat->id?>"><?=$cat->name?></option>
+				<? endforeach; ?>
+			</select>
+        </div>
 
         <!-- buttons -->
         <div class="button-box">

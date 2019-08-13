@@ -3,6 +3,7 @@
 class CategoryBase extends Model {
 	
 	const ID_PARENT_MAIN_CATEGORY = 0;
+	const CATEGORY_NOT = 17;
 	
 	public $sub; //subcategory
 	public $qtyQuotes;
