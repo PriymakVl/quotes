@@ -36,7 +36,7 @@ class Book extends Model {
 	
 	public function getCategory()
 	{
-		if ($this->id_cat) $this->category = new Author($this->id_cat);
+		if ($this->id_cat) $this->category = new Category($this->id_cat);
 		return $this;
 	}
 	
