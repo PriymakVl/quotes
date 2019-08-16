@@ -23,6 +23,19 @@ class Author extends Model {
 		$sql = 'INSERT INTO `authors` (first_name, last_name, patronymic, surname, date_birth) VALUES (:first_name, :last_name, :patronymic, :surname, :date_birth)';
 		return self::insert($sql, $params);
 	}
+
+	public function edit()
+	{
+		$this->update();
+		return $this;
+	}
+
+	public function update()
+	{
+		$params = self::selectParams(['first_name', 'last_name', 'patronymic', 'surname', 'date_birth', 'id_author']);
+		$sql = "UPDATE `authors` SET `first_name` = :first_name, `last_name` = :last_name, `patronymic` = :patronymic, `surname` = :surname, `date_birth` = :date_birth WHERE `id` = :id_author";
+		return self::perform($sql, $params);
+	}
 	
 	
 }

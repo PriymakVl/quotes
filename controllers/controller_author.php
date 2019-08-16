@@ -25,7 +25,22 @@ class Controller_Author extends Controller {
 	{
 		if (!$this->post->save) return $this->render('add/main');
 		$author = (new Author)->addData()->setMessage('success', 'add');
-		$this->redirect('/author?id_author='.$author->id);
+		$this->redirect('author?id_author='.$author->id);
+	}
+
+	public function action_edit()
+	{
+		$author = (new Author)->setData($this->get->id_author);
+		if (!$this->post->save) return $this->render('edit/main', compact('author'));
+		$author->edit()->setMessage('success', 'edit');
+		$this->redirect('author?id_author='.$author->id);
+	}
+
+	public function action_delete()
+	{
+		$author = (new Author)->getData($this->get->id_author);
+		$author->delete()->setMessage('success', 'delete');
+		$this->redirect('/author/list');
 	}
 
 
