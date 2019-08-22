@@ -22,6 +22,12 @@ class Controller_Quote extends Controller {
 		$quote = (new Quote)->addData()->setMessage('success', 'add');
 		$this->redirect('quote?id_quote='.$quote->id);
 	}
+
+	public function action_list()
+	{
+		$list = (new Quote)->getAllQuotes();
+		$this->render('list/main', compact('list'));
+	}
 	
 	public function action_category()
 	{

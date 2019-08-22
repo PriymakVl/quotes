@@ -1,30 +1,33 @@
 <?php
 	$number = 1;
 ?>
-<table class="list-books" width="940">
-    <tr>
-        <th width="40">№</th>
-        <th width="250">Название</th>
-        <th>Автор</th>
-        <th>Категория</th>
-    </tr>
-    <? if ($books): ?>
-        <?foreach ($books as $book): ?>
+
+<div class="col-md-10">
+    <table class="table table-hover table-bordered table-sm">
+        <!-- thead -->
+        <thead class="bg-light text-center">
             <tr>
-                <td>
-					<a href="/book?id_book=<?=$book->id?>"><?=$number?></a>
-				</td>
-                <td>
-                    <?=$book->title?>
-                </td>
-                <td>
-					<?=$book->author ? $book->author->surname : ''?>
-				</td>
-				<td><?=$book->category ? $book->category->name : ''?></td>
-			</tr>
-			<? $number++; ?>
-        <? endforeach; ?>
-	<? else: ?>
-		<tr><td colspan="3" class="red">Нет подкатегорий</td></tr>
-	<? endif; ?>
-</table>
+                <th>#</th>
+                <th>Название</th>
+                <th>Автор</th>
+                <th>Категория</th>
+                <th>Рейтинг</th>
+            </tr>
+        </thead>
+        <!-- tbody -->
+        <? if ($books): ?>
+            <tbody class="table-striped">
+            <?foreach ($books as $book): ?>
+                <tr>
+                    <td><?=$number?></td>
+                    <td><?=$book->title?></td>
+                    <td><?=$book->author ? $book->author->surname : ''?></td>
+                    <td><?=$book->category ? $book->category->name : ''?></td>
+                    <td>5</td>
+                </tr>
+                <? $number++; ?>
+            <? endforeach; ?>
+            </tbody>
+        <? endif; ?>
+    </table>
+</div>

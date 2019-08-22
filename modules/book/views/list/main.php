@@ -1,20 +1,21 @@
-<!-- css files -->
-<link href="/web/css/table.css" rel="stylesheet">
+<main>
+    <div class="container">
 
-<div id="content">
-
-    <!-- message -->
-    <? include './views/total/message.php'; ?>
-	<h2>Список книг</h2>
-	<!-- filters -->
-	<? //include'filters'; ?>
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="text-center">Рейтинг книг</h2>
+        </div>
+      </div>
 	
-    <!-- book list -->
-	<? include 'books.php'; ?>
+		
+  	<div class="row">
 
-    <!-- books menu -->
-    <? include('menu.php'); ?>
+  		<!-- menu -->
+        <? include 'menu.php'; ?>
 
-</div><!-- id content -->
-
-
+		<!-- books -->
+		<? include 'books.php'; ?>
+        
+      </div>
+    </div>
+</main>

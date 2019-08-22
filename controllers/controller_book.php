@@ -11,7 +11,7 @@ class Controller_Book extends Controller {
 	
     public function action_index()
 	{
-	    $book = (new Book)->setData($this->get->id_book)->getCategory();//->getAuthor();
+	    $book = (new Book)->setData($this->get->id_book)->getCategory()->getAuthor();
 		$this->render('index/main', compact('book'));
 	}
 	
@@ -25,7 +25,6 @@ class Controller_Book extends Controller {
 	public function action_list()
 	{
 		$books = (new Book)->getBooks();
-		debug($books);
 		$this->render('list/main', compact('books'));
 	}
 

@@ -4,9 +4,10 @@ class Controller_Main extends Controller_Base {
 
     public function action_index()
 	{
-	    $quotes = (new Quote)->getFavorite()->getRandom(4);
-		$categories = (new Category)->getMain();
-		$this->render('main/index', compact('quotes', 'categories'));
+	 //    $quotes = (new Quote)->getFavorite()->getRandom(4);
+		// $categories = (new Category)->getMain();
+		// $this->render('main/index', compact('quotes', 'categories'));
+		$this->redirect('/quotes/book/list');
 	}
 
 	public function action_404()
