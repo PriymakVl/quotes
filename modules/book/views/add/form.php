@@ -3,13 +3,13 @@
 	$cats = (new Category)->getAll('categories');
 ?>
 
-<div id="form-category-wrp">
+<div class="container">
     <h3>Форма для добавления книги</h3>
     <form action="/book/add" method="post">
 		<!-- authors -->
-        <div class="form-box">
+        <div class="form-group">
 			<label>Авторы:</label>
-			<select name="id_author">
+			<select class="form-control" name="id_author">
 				<option value="0">Не выбран</option>
 				<? foreach ($authors as $author): ?>
 					<option value="<?=$author->id?>"><?=$author->surname?></option>
@@ -17,24 +17,24 @@
 			</select>
         </div>
 		<!-- title book -->
-        <div class="form-box">
+        <div class="form-group">
 			<label>Название:</label>
-			<input type="text" name="title" required>
+			<input class="form-control" type="text" name="title" required>
         </div>
 		<!-- description book -->
-		<div class="form-box">
+		<div class="form-group">
 			<label>Описание книги:</label>
-			<textarea name="description"></textarea>
+			<textarea class="form-control" rows="3" name="description"></textarea>
 		</div>
 		<!-- rating book -->
-		<div class="form-box">
+		<div class="form-group">
 			<label>Рейтинг книги:</label>
-			<input type="text" name="rating">
+			<input class="form-control" type="text" name="rating">
 		</div>
 		<!-- category -->
-        <div class="form-box">
+        <div class="form-group">
 			<label>Категория:</label>
-			<select name="id_cat">
+			<select name="id_cat" class="form-control">
 				<option value="">Не выбрана</option>
 				<? foreach ($cats as $cat): ?>
 					<option value="<?=$cat->id?>"><?=$cat->name?></option>
@@ -43,9 +43,9 @@
         </div>
 
         <!-- buttons -->
-        <div class="button-box">
-            <input type="submit" value="Сохранить" name="save">
-            <input type="button" onclick="history.back();" value="Отменить">
+        <div class="form-group">
+            <input type="submit" class="btn btn-success" value="Сохранить" name="save">
+            <input type="button"class="btn btn-primary"onclick="history.back();" value="Отменить">
         </div>
     </form>
 </div>

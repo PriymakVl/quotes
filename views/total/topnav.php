@@ -10,13 +10,13 @@
   <!-- Links -->
   <ul class="navbar-nav mx-auto">
     <li class="nav-item">
-      <a class="nav-link" href="/quotes_list.php">Цитаты</a>
+      <a class="nav-link" href="/quote/list">Цитаты</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Авторы</a>
+      <a class="nav-link" href="/authors/list">Авторы</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Книги</a>
+      <a class="nav-link" href="/book/list">Книги</a>
     </li>
 
     <!-- Dropdown -->

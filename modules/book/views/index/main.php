@@ -1,18 +1,22 @@
 <!-- css files -->
-<!--<link rel="stylesheet" href="/modules/quote/css/index.css">-->
-<link href="/web/css/table.css" rel="stylesheet">
 
-<div id="content">
 
-    <div id="quote-index-wrp">
+<div class="row">
+        <div class="col-md-12">
+          <h2 class="text-center">Информация по книге</h2>
+        </div>
+      </div>
+<div class="row">
 
-			<!-- message -->
-			<? include './views/total/message.php'; ?>
+<div class="row">
+	<!-- message -->
+	<? include './views/total/message.php'; ?>
+</div>
+	
+</div class="row">
 
-            <!-- quote  info -->
-            <? include_once('info.php'); ?>
-
-    </div>
+    <!-- quote  info -->
+    <? include_once('info.php'); ?>
 
     <!-- quote menu -->
     <? include_once('menu.php'); ?>

@@ -20,7 +20,9 @@
             <?foreach ($books as $book): ?>
                 <tr>
                     <td><?=$number?></td>
-                    <td><?=$book->title?></td>
+                    <td>
+                        <a href="/book?id_book=<?=$book->id?>"><?=$book->title?></a>
+                    </td>
                     <td><?=$book->author ? $book->author->surname : ''?></td>
                     <td><?=$book->category ? $book->category->name : ''?></td>
                     <td>5</td>

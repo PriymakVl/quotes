@@ -1,8 +1,7 @@
 <!-- css files -->
-<link rel="stylesheet" href="/web/css/form.css">
-<link rel="stylesheet" href="/modules/category/css/form.css">
 
-<div id="content">
+
+<div class="rodw">
     <!-- quote form -->
     <? include 'form.php'; ?>
 
