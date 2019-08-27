@@ -1,7 +1,7 @@
 <!-- css files -->
 
 
-<div class="row">
+<div class="rodw">
     <!-- quote form -->
     <? include 'form.php'; ?>
 

@@ -1,26 +1,29 @@
 <!-- css files -->
 
 
-<div class="row">
-        <div class="col-md-12">
-          <h2 class="text-center">Информация по книге</h2>
-        </div>
-      </div>
-<div class="row">
+<div class="container">
+  
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="text-center">Информация по книге</h2>
+    </div>
+  </div>
 
-<div class="row">
-	<!-- message -->
-	<? include './views/total/message.php'; ?>
-</div>
-	
-</div class="row">
 
-    <!-- quote  info -->
-    <? include_once('info.php'); ?>
+  <div class="row">
+  	<!-- message -->
+  	<? include './views/total/message.php'; ?>
+  </div>
+  	
+  <div class="row">
 
-    <!-- quote menu -->
-    <? include_once('menu.php'); ?>
+      <!-- book menu -->
+      <? include_once('menu.php'); ?>
 
+      <!-- book  info -->
+      <? include_once('info.php'); ?>
+
+  </div>
 </div>
 
 <!-- js files -->

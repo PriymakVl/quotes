@@ -27,6 +27,14 @@ class Book extends Model {
 		VALUES (:title, :id_author, :description, :id_cat, :rating)';
 		return self::insert($sql, $params);
 	}
+
+	public function edit()
+	{
+		$params = self::selectParams(['id_cat', 'title', 'id_author', 'id_book', 'description']);
+		$sql = "UPDATE `books` SET `id_cat` = :id_cat, `id_author` = :id_author, `title` = :title, `description` = :description 
+		WHERE `id` = :id_book";
+		if (self::update($sql, $params)) return $this;
+	}
 	
 	public function getAuthor()
 	{

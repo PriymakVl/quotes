@@ -21,6 +21,14 @@ class Controller_Book extends Controller {
 		$book = (new Book)->addData()->setMessage('success', 'add');
 		$this->redirect('book?id_book='.$book->id);
 	}
+
+	public function action_edit()
+	{
+		$book = (new Book)->setData($this->get->id_book);
+		if (!$this->post->save) return $this->render('edit/main', compact('book'));
+		$book->edit()->setMessage('success', 'edit');
+		$this->redirect('book?id_book='.$book->id);
+	}
 	
 	public function action_list()
 	{
