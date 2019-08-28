@@ -25,7 +25,9 @@
                     </td>
                     <td><?=$book->author ? $book->author->surname : ''?></td>
                     <td><?=$book->category ? $book->category->name : ''?></td>
-                    <td>5</td>
+                    <td> <!-- data-target="#checkout" -->
+                        <a href="#rating-edit" data-toggle="modal"><?=$book->rating ? $book->rating : 0?></a>
+                    </td>
                 </tr>
                 <? $number++; ?>
             <? endforeach; ?>

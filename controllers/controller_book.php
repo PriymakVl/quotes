@@ -29,6 +29,11 @@ class Controller_Book extends Controller {
 		$book->edit()->setMessage('success', 'edit');
 		$this->redirect('book?id_book='.$book->id);
 	}
+
+	public function action_edit_rating()
+	{
+		debug($this->get->rating);
+	}
 	
 	public function action_list()
 	{
