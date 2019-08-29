@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/web/css/header.css">
     <link rel="stylesheet" href="/web/css/menu_outside.css"> -->
     <link rel="stylesheet" href="/web/css/jquery-ui.css">
+    <script src="/web/js/jquery-3.3.1.min.js"></script>
 
 </head>
 <body>
@@ -25,7 +26,7 @@
 </div>
         
 <!-- script -->
-<script src="/web/js/jquery-3.3.1.min.js"></script>
+
 <script src="/web/js/jquery-ui.js"></script>
 <script src="/web/js/bootstrap.js"></script>
 </body>

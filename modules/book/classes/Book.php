@@ -4,6 +4,12 @@ class Book extends Model {
 	
 	public $author;
 	public $category;
+
+	const STATE_NOT_READ = 0;
+	const STATE_SPEED_READ = 1;
+	const STATE_READ = 2;
+	const STATE_AUDIO = 3;
+	const STATE_OUTLINED = 4; //законспектирована
 	
 	use BookParam, BookList;
 	
@@ -53,6 +59,30 @@ class Book extends Model {
 		$quotes = (new Quote)->getByIdBookModel($this->id);
 		foreach ($quotes as $quote) {
 			(new Quote)->updateIdBookModel(0);
+		}
+	}
+
+	public function convertState()
+	{
+		switch ($this->state) {
+			case self::STATE_NOT_READ: return 'не прочитана';
+			case self::STATE_SPEED_READ: return 'просмотрена';
+			case self::STATE_READ: return 'прочитана';
+			case self::STATE_AUDIO: return 'прослушана';
+			case self::STATE_OUTLINED: return 'законспектирована';
+			default: return 'не известно';
+		}
+	}
+
+	public function getBgState()
+	{
+		switch ($this->state) {
+			case self::STATE_NOT_READ: return 'white';
+			case self::STATE_SPEED_READ: return 'yellow';
+			case self::STATE_READ: return 'orange';
+			case self::STATE_AUDIO: return 'orange';
+			case self::STATE_OUTLINED: return 'green';
+			default: return 'red';
 		}
 	}
 	

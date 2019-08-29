@@ -20,3 +20,9 @@
 
   <!-- rating form -->
   <? include 'rating_form.php'; ?>
+
+  <!-- state form -->
+  <? include 'state_form.php'; ?>
+
+  <!-- scripts -->
+  <script type="text/javascript" src="/modules/book/js/set_id_book_for_form_rating.js"></script>

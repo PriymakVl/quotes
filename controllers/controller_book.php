@@ -32,7 +32,14 @@ class Controller_Book extends Controller {
 
 	public function action_edit_rating()
 	{
-		debug($this->get->rating);
+		(new Book)->setData($this->get->id_book)->setRating($this->get->rating)->setMessage('success', 'edit_rating');
+		$this->redirectPrevious();
+	}
+
+	public function action_edit_state()
+	{
+		(new Book)->setData($this->get->id_book)->setState($this->get->state)->setMessage('success', 'edit_state');
+		$this->redirectPrevious();
 	}
 	
 	public function action_list()
