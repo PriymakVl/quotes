@@ -48,5 +48,11 @@ class Controller_Book extends Controller {
 		$this->render('list/main', compact('books'));
 	}
 
+	public function action_upload_file()
+	{
+		(new Book)->setData($this->post->id_book)->addFile()->setMessage('success', 'upload_file');
+		$this->redirectPrevious();
+	}
+
 
 }

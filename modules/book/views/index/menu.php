@@ -9,5 +9,8 @@
         <li>
             <a href="#" id_book="<?=$book->id?>" id="delete-book">Удалить книгу</a>
         </li>
+        <li>
+            <a href="#upload-file-book" data-toggle="modal" id_book="<?=$book->id?>" id="delete-book">Загрузить файл</a>
+        </li>
     </ul>
 </div>

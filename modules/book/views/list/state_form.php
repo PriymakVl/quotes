@@ -1,7 +1,4 @@
-<style type="text/css">
-</style>
-
-<div class="modal" id="state-edit">
+<div class="modal fade" id="state-edit">
   <div class="modal-dialog">
     <div class="modal-content">
 
@@ -23,9 +20,9 @@
               <option value="<?=Book::STATE_AUDIO?>">Прослушана</option>
               <option value="<?=Book::STATE_OUTLINED?>">Законспектирована</option>
             </select>
-            <input type="hidden" name="id_book" value="">
+            <input type="hidden" name="id_book" value="<?=$book->id?>">
          </div>
-
+      </div>
       <!-- Modal footer -->
       <div class="modal-footer">
         <input type="submit" class="btn btn-success" value="Изменить">

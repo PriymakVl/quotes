@@ -85,6 +85,32 @@ class Book extends Model {
 			default: return 'red';
 		}
 	}
+
+	public function addFile()
+	{
+		$filename = $this->saveFile();
+		debug($filename);
+		if (!$filename) throw new Exception('error upload file book');
+		$this->updateFileName($filename);
+		return $this;
+	}
+
+	public function updateFileName($filename)
+	{
+		$params = ['filename' => $filename, 'id_book' => $this->id];
+		$sql = "UPDATE `books` SET `filename` = :filename WHERE `id` = :id_book";
+		self::perform($sql, $params);
+	}
+
+	private function saveFile()
+	{
+		if(empty($_FILES) || $_FILES['file_book']['error'] != 0) return false;
+		$filename = md5(microtime() . rand(0, 9999));
+		debug($filename);
+		$destination = '/web/books/'.$filename;
+		if (move_uploaded_file($_FILES['file_book']['tmp_name'], $destination)) return $filename;
+	}
+	
 	
 	
 }

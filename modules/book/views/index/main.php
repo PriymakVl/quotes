@@ -24,6 +24,9 @@
       <? include_once('info.php'); ?>
 
   </div>
+
+      <!-- form upload file book -->
+      <? include 'file_form.php'; ?>
 </div>
 
 <!-- js files -->

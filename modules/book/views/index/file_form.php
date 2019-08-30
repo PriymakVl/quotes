@@ -1,4 +1,4 @@
-<div class="modal fade" id="rating-edit">
+<div class="modal fade" id="upload-file-book">
   <div class="modal-dialog">
     <div class="modal-content">
 
@@ -7,19 +7,19 @@
          <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
     
-   <form action="/book/edit_rating?>">
+   <form action="/book/upload_file" enctype="multipart/form-data" method="post">
       <!-- Modal body -->
       <div class="modal-body">
          <!-- rating -->
          <div class="form-group">
-            <label for="rating">Рейтинг книги:</label>
-            <input type="number" class="form-control input-sm" id="rating" name="rating" value="1">
-            <input type="hidden" name="id_book" value="">
+            <label for="rating">Файл книги:</label>
+            <input type="file" class="form-control" name="file_book">
+            <input type="hidden" name="id_book" value="<?=$book->id?>">
          </div>
       </div>
       <!-- Modal footer -->
       <div class="modal-footer">
-        <input type="submit" class="btn btn-success" value="Изменить">
+        <input type="submit" class="btn btn-success" value="Загрузить">
       </div>
    </form>
       
