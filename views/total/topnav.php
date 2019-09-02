@@ -13,7 +13,7 @@
       <a class="nav-link" href="/quote/list">Цитаты</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/authors/list">Авторы</a>
+      <a class="nav-link" href="/author/list">Авторы</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="/book/list">Книги</a>

@@ -89,7 +89,6 @@ class Book extends Model {
 	public function addFile()
 	{
 		$filename = $this->saveFile();
-		debug($filename);
 		if (!$filename) throw new Exception('error upload file book');
 		$this->updateFileName($filename);
 		return $this;
@@ -106,9 +105,9 @@ class Book extends Model {
 	{
 		if(empty($_FILES) || $_FILES['file_book']['error'] != 0) return false;
 		$filename = md5(microtime() . rand(0, 9999));
-		debug($filename);
-		$destination = '/web/books/'.$filename;
-		if (move_uploaded_file($_FILES['file_book']['tmp_name'], $destination)) return $filename;
+		$extension = explode('.', $_FILES['file_book']['name'])[1];
+		$file = $filename.'.'.$extension;
+		if (move_uploaded_file($_FILES['file_book']['tmp_name'], './web/books/'.$file)) return $file;
 	}
 	
 	

@@ -16,7 +16,7 @@ class Message {
     public function get()
     {
         if (empty($_SESSION['message'])) return;
-        $this->class = 'message-'.$_SESSION['message']['type'];
+        $this->class = 'alert-'.$_SESSION['message']['type'];
         $this->text = $_SESSION['message']['text'];
         unset($_SESSION['message']);
     }

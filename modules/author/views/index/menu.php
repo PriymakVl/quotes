@@ -1,4 +1,4 @@
-<div id="menu-outside-wrp">
+<div>
     <ul>
     	<li>
             <a href="/author/add">Добавить автора</a>

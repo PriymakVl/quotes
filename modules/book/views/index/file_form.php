@@ -13,7 +13,7 @@
          <!-- rating -->
          <div class="form-group">
             <label for="rating">Файл книги:</label>
-            <input type="file" class="form-control" name="file_book">
+            <input type="file" name="file_book">
             <input type="hidden" name="id_book" value="<?=$book->id?>">
          </div>
       </div>

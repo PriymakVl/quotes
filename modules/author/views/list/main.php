@@ -1,20 +1,25 @@
-<!-- css files -->
-<link href="/web/css/table.css" rel="stylesheet">
+<div class="container">
+    <div class="row">
+      	<div class="col-md-12">
+        	<h2 class="text-center">Список авторов</h2>
+	 	</div>
+	</div>
 
-<div id="content">
-
-    <!-- message -->
+	<!-- message -->
     <? include './views/total/message.php'; ?>
-	<h2>Список авторов</h2>
-	<!-- filters -->
-	<? //include'filters'; ?>
 	
-    <!-- authors list -->
-	<? include 'authors.php'; ?>
+	<div class="row">
 
-    <!-- books menu -->
-    <? include('menu.php'); ?>
+		<!-- filters -->
+		<? //include'filters'; ?>
 
-</div><!-- id content -->
+		<!-- authors menu -->
+	    <? include('menu.php'); ?>
+		
+	    <!-- authors list -->
+		<? include 'authors.php'; ?>
+
+	</div>
+</div>
 
 

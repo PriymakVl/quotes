@@ -1,25 +1,27 @@
-<!-- css files -->
-<!--<link rel="stylesheet" href="/modules/quote/css/index.css">-->
-<link href="/web/css/table.css" rel="stylesheet">
+	<div class="container">
+		<!-- message -->
+		<? include './views/total/message.php'; ?>
+		
+		<div class="row">
+			<div class="col-md-12">
+				<h2 class="text-center">Информация об авторе</h2>
+			</div>
+		</div>
 
-<div id="content">
+		<div class="row">
+			<div class="col-md-3 p-0">
+				<!-- athor menu -->
+	    		<? include_once('menu.php'); ?>
+			</div>
 
-    <div>
-
-			<!-- message -->
-			<? include './views/total/message.php'; ?>
-
-            <!-- quote  info -->
-            <? include_once('info.php'); ?>
-
-    </div>
-
-    <!-- quote menu -->
-    <? include_once('menu.php'); ?>
-
-</div>
+			<div class="col-md-9 p-0">
+				<!-- author  info -->
+		    	<? include_once('info.php'); ?>
+			</div>
+		</div>
+	</div>
+	
 
 <!-- js files -->
-<!--<script src="/modules/quote/js/delete_quote.js"></script>-->
 
 
