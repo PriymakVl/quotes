@@ -23,7 +23,10 @@
                     <td>
                         <a href="/author?id_author=<?=$author->id?>"><?=$author->surname?></a>
                     </td>
-                    <td>нет</td>
+                    <td>
+                        <? $books = (new Book)->getForAuthor($author->id); ?>
+                        <?= $books ? count($books) : '<span class="text-danger">нет</span>'; ?>
+                    </td>
     			</tr>
     			<? $number++; ?>
             <? endforeach; ?>

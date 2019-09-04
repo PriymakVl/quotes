@@ -1,6 +1,7 @@
 <?php
 	$authors = (new Author)->getAll('authors');
 	$cats = (new Category)->getAll('categories');
+	$states = [Book::STATE_NOT_READ, Book::STATE_SPEED_READ, Book::STATE_READ, Book::STATE_AUDIO, Book::STATE_OUTLINED];
 ?>
 
 <div class="container">
@@ -12,7 +13,7 @@
 			<select class="form-control" name="id_author">
 				<option value="0">Не выбран</option>
 				<? foreach ($authors as $author): ?>
-					<option value="<?=$author->id?>"><?=$author->surname?></option>
+					<option value="<?=$author->id?>" <? if ($this->get->id_author == $author->id) echo 'selected'; ?>><?=$author->surname?></option>
 				<? endforeach; ?>
 			</select>
         </div>
@@ -26,6 +27,18 @@
 			<label>Описание книги:</label>
 			<textarea class="form-control" rows="3" name="description"></textarea>
 		</div>
+		<!-- state book -->
+<!-- 		<div class="form-group">
+			<label>Состояние:</label>
+			<select class="form-control" name="state">
+				<? foreach ($states as $state): ?>
+					<option value="<?=$state?>">
+						<?//=(new Book)->convertState($state)?>
+						<?//=$state?>
+					</option>
+				<? endforeach; ?>
+			</select>
+		</div> -->
 		<!-- rating book -->
 		<div class="form-group">
 			<label>Рейтинг книги:</label>

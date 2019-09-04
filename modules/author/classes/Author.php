@@ -3,6 +3,8 @@
 class Author extends Model {
 	
 	use AuthorParam;
+
+	public $books;
 	
 	public function __construct($id = false)
 	{
@@ -36,6 +38,12 @@ class Author extends Model {
 		debug($params);
 		$sql = "UPDATE `authors` SET `first_name` = :first_name, `last_name` = :last_name, `patronymic` = :patronymic, `surname` = :surname, `date_birth` = :date_birth WHERE `id` = :id_author";
 		return self::perform($sql, $params);
+	}
+
+	public function getBooks()
+	{
+		$this->books = (new Book)->getForAuthor($this->id);
+		return $this;
 	}
 	
 	

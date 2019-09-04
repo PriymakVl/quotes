@@ -15,6 +15,23 @@
 			<td>ФИО</td>
 			<td><?=$author->surname?></td>
 		</tr>
+		<tr>
+			<td>2</td>
+			<td>Книги</td>
+			<td>
+				<? if ($author->books): ?>
+					<? foreach ($author->books as $book): ?>
+						<ul>
+							<li>
+								<? printf('<a href="/book?id_book=%s">%s</a>', $book->id, $book->title); ?>
+							</li>
+						</ul>
+					<? endforeach; ?>
+				<? else: ?>
+					<span class="text-danger">книг еще нет</span>
+				<? endif; ?>					
+			</td>
+		</tr>
 	</tbody>
 	
 </table>

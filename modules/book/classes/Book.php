@@ -62,9 +62,10 @@ class Book extends Model {
 		}
 	}
 
-	public function convertState()
+	public function convertState($state = null)
 	{
-		switch ($this->state) {
+		$state = $state ? $state : $this->state;
+		switch ($state) {
 			case self::STATE_NOT_READ: return 'не прочитана';
 			case self::STATE_SPEED_READ: return 'просмотрена';
 			case self::STATE_READ: return 'прочитана';
@@ -108,6 +109,13 @@ class Book extends Model {
 		$extension = explode('.', $_FILES['file_book']['name'])[1];
 		$file = $filename.'.'.$extension;
 		if (move_uploaded_file($_FILES['file_book']['tmp_name'], './web/books/'.$file)) return $file;
+	}
+
+	public function getForAuthor($id_author)
+	{
+		$params = ['id_author' => $id_author, 'status' => STATUS_ACTIVE];
+		$sql = "SELECT * FROM `books` WHERE `id_author` = :id_author AND `status` = :status";
+		return self::perform($sql, $params)->fetchAll();
 	}
 	
 	

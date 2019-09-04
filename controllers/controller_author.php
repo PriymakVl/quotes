@@ -11,7 +11,7 @@ class Controller_Author extends Controller {
     public function action_index()
 	{
 		$this->view->title = 'Автор';
-	    $author = (new Author)->setData($this->get->id_author);
+	    $author = (new Author)->setData($this->get->id_author)->getBooks();
 		$this->render('index/main', compact('author'));
 	}
 
