@@ -23,5 +23,6 @@
 	
 
 <!-- js files -->
+<script type="text/javascript" src="/modules/athor/js/delete_author.js"></script>
 
 

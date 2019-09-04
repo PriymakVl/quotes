@@ -1,5 +1,5 @@
 <div class="col-md-12">
-    <h2 class="text-center">Форма для добавления автора цитаты</h2>
+    <h2 class="text-center">Форма для добавления автора</h2>
     
 
     <form action="/author/add" method="post">
