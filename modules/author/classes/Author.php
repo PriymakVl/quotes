@@ -35,7 +35,6 @@ class Author extends Model {
 	public function updateData()
 	{
 		$params = self::selectParams(['first_name', 'last_name', 'patronymic', 'surname', 'date_birth', 'id_author']);
-		debug($params);
 		$sql = "UPDATE `authors` SET `first_name` = :first_name, `last_name` = :last_name, `patronymic` = :patronymic, `surname` = :surname, `date_birth` = :date_birth WHERE `id` = :id_author";
 		return self::perform($sql, $params);
 	}

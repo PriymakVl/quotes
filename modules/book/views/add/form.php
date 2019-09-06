@@ -28,17 +28,16 @@
 			<textarea class="form-control" rows="3" name="description"></textarea>
 		</div>
 		<!-- state book -->
-<!-- 		<div class="form-group">
+		<div class="form-group">
 			<label>Состояние:</label>
 			<select class="form-control" name="state">
 				<? foreach ($states as $state): ?>
 					<option value="<?=$state?>">
-						<?//=(new Book)->convertState($state)?>
-						<?//=$state?>
+						<?=(new Book)->convertState($state)?>
 					</option>
 				<? endforeach; ?>
 			</select>
-		</div> -->
+		</div>
 		<!-- rating book -->
 		<div class="form-group">
 			<label>Рейтинг книги:</label>

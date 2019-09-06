@@ -44,7 +44,12 @@ class Controller_Book extends Controller {
 	
 	public function action_list()
 	{
-		$books = (new Book)->getBooks();
+		// $books = (new Book)->getBooks();
+		$count_on_page = 10;
+		$obj = new Book();
+		$books = $obj->getList($count_on_page);
+		debug($books);
+		$pagination = $obj->getPagination();
 		$this->render('list/main', compact('books'));
 	}
 

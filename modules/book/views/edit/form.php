@@ -1,6 +1,7 @@
 <?php
 	$authors = (new Author)->getAll('authors');
 	$cats = (new Category)->getAll('categories');
+	$states = [Book::STATE_NOT_READ, Book::STATE_SPEED_READ, Book::STATE_READ, Book::STATE_AUDIO, Book::STATE_OUTLINED];
 ?>
 
 <div class="container">
@@ -26,6 +27,17 @@
 			<label>Описание книги:</label>
 			<textarea class="form-control" rows="3" name="description"><?=$book->description?></textarea>
 		</div>
+		<!-- state book -->
+		<div class="form-group">
+			<label>Состояние:</label>
+			<select class="form-control" name="state">
+				<? foreach ($states as $state): ?>
+					<option value="<?=$state?>" <? if ($state == $book->state) echo 'selected' ?>>
+						<?=(new Book)->convertState($state)?>
+					</option>
+				<? endforeach; ?>
+			</select>
+		</div>
 		<!-- rating book -->
 		<div class="form-group">
 			<label>Рейтинг книги:</label>
@@ -45,7 +57,7 @@
         <!-- buttons -->
         <div class="form-group">
             <input type="submit" class="btn btn-success" value="Сохранить" name="save">
-            <input type="button"class="btn btn-primary"onclick="history.back();" value="Отменить">
+            <input type="button" class="btn btn-primary" onclick="history.back();" value="Отменить">
         </div>
     </form>
 </div>

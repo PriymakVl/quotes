@@ -26,3 +26,4 @@
 
   <!-- scripts -->
   <script type="text/javascript" src="/modules/book/js/set_id_book_for_form_rating.js"></script>
+  <script type="text/javascript" src="/modules/book/js/set_id_book_for_form_edit_state.js"></script>

@@ -23,7 +23,13 @@
                     <td>
                         <a href="/book?id_book=<?=$book->id?>"><?=$book->title?></a>
                     </td>
-                    <td><?=$book->author ? $book->author->surname : ''?></td>
+                    <td>
+                        <? if ($book->author): ?>
+                            <a href="/author?id_author=<?=$book->author->id?>"><?=$book->author->surname?></a>
+                        <? else: ?>
+                            <span class="text-danger">нет</span>
+                        <? endif; ?>
+                    </td>
                     <td class="text-center" style="background: <?=$book->getBgState()?>">
                         <a href="#state-edit" data-toggle="modal" id_book="<?=$book->id?>" class="text-dark"><?=$book->convertState()?></a>
                     </td>

@@ -31,23 +31,29 @@
 			<tr>
 				<td>4</td>
 				<td>Автор</td>
-				<td class="left"><?=$book->author ? $book->author->surname : '<span class="red">нет</span>'?></td>
+				<td class="left"><?=$book->author ? $book->author->surname : '<span class="text-danger">нет</span>'?></td>
+			</tr>
+			<!-- state book -->
+			<tr>
+				<td>5</td>
+				<td>Состояние</td>
+				<td class="left"><?=$book->convertState()?></td>
 			</tr>
 			<!-- book file -->
 			<tr>
-				<td>5</td>
+				<td>6</td>
 				<td>Файл</td>
 				<td>
 					<? if ($book->filename): ?>
 						<a href="/web/books/<?=$book->filename?>">Скачать</a>
 					<? else: ?>
-						<span class="text-danger" >Нет</span>
+						<span class="text-danger" >нет</span>
 					<? endif; ?>
 				</td>
 			</tr>
 			<!-- book description -->
 			<tr>
-				<td>6</td>
+				<td>7</td>
 				<td>Описание книги</td>
 				<td class="left"><?=$book->description ? $book->description : ''?></td>
 			</tr>

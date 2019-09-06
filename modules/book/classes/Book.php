@@ -5,11 +5,11 @@ class Book extends Model {
 	public $author;
 	public $category;
 
-	const STATE_NOT_READ = 0;
-	const STATE_SPEED_READ = 1;
-	const STATE_READ = 2;
-	const STATE_AUDIO = 3;
-	const STATE_OUTLINED = 4; //законспектирована
+	const STATE_NOT_READ = 1;
+	const STATE_SPEED_READ = 2;
+	const STATE_READ = 3;
+	const STATE_AUDIO = 4;
+	const STATE_OUTLINED = 5; //законспектирована
 	
 	use BookParam, BookList;
 	
@@ -36,8 +36,8 @@ class Book extends Model {
 
 	public function edit()
 	{
-		$params = self::selectParams(['id_cat', 'title', 'id_author', 'id_book', 'description']);
-		$sql = "UPDATE `books` SET `id_cat` = :id_cat, `id_author` = :id_author, `title` = :title, `description` = :description WHERE `id` = :id_book";
+		$params = self::selectParams(['id_cat', 'title', 'id_author', 'id_book', 'description', 'state']);
+		$sql = "UPDATE `books` SET `state` = :state, `id_cat` = :id_cat, `id_author` = :id_author, `title` = :title, `description` = :description WHERE `id` = :id_book";
 		if (self::perform($sql, $params)) return $this;
 	}
 	

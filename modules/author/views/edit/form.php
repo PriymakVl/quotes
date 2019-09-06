@@ -2,7 +2,7 @@
     <h2 class="text-center">Форма для  редактирования автора</h2>
     
 
-    <form action="/author/add" method="post">
+    <form action="/author/edit?id_author=<?=$author->id?>" method="post">
         <!-- author --> 
         <div class="form-group">
 			<label>Имя:</label>
