@@ -32,8 +32,8 @@
     </li> -->
   </ul>
 
-  <form class="form-inline navbar-right" action="">
-      <input class="form-control mr-sm-2" type="text" placeholder="">
+  <form class="form-inline navbar-right" action="/book/search">
+      <input class="form-control mr-sm-2" type="text" name="title" placeholder="Найти книгу">
       <button class="btn btn-outline-success" type="submit">Поиск</button>
   </form>
 </nav> 

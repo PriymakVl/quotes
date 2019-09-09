@@ -29,15 +29,15 @@ class Book extends Model {
 	public function addDataModel()
 	{
 		$params = $this->addDataParam();
-		$sql = 'INSERT INTO `books` (title, id_author, description, id_cat, rating) 
-		VALUES (:title, :id_author, :description, :id_cat, :rating)';
+		$sql = 'INSERT INTO `books` (title, id_author, description, id_cat, rating, state) 
+		VALUES (:title, :id_author, :description, :id_cat, :rating, :state)';
 		return self::insert($sql, $params);
 	}
 
 	public function edit()
 	{
-		$params = self::selectParams(['id_cat', 'title', 'id_author', 'id_book', 'description', 'state']);
-		$sql = "UPDATE `books` SET `state` = :state, `id_cat` = :id_cat, `id_author` = :id_author, `title` = :title, `description` = :description WHERE `id` = :id_book";
+		$params = self::selectParams(['id_cat', 'title', 'id_author', 'id_book', 'description', 'state', 'rating']);
+		$sql = "UPDATE `books` SET `rating` = :rating, `state` = :state, `id_cat` = :id_cat, `id_author` = :id_author, `title` = :title, `description` = :description WHERE `id` = :id_book";
 		if (self::perform($sql, $params)) return $this;
 	}
 	
@@ -117,6 +117,22 @@ class Book extends Model {
 		$sql = "SELECT * FROM `books` WHERE `id_author` = :id_author AND `status` = :status";
 		return self::perform($sql, $params)->fetchAll();
 	}
+
+	public function search($title = false)
+	{
+		//$items = $this->selectByTitle();
+		//if ($items) return ObjectHelper::factory($items, 'Term', ['setData', 'getImages']);
+		$params = ['title' => $title ? $title : $this->params->title, 'status' => STATUS_ACTIVE];
+        $sql = 'SELECT * FROM `books` WHERE `title` like concat("%", :title, "%") AND `status` = :status';
+        return self::perform($sql, $params)->fetchAll();
+	}
+
+	// public function selectByName($name = false)
+ //    {
+ //        $params = ['name' => $name ? $name : $this->params->name, 'status' => STATUS_ACTIVE];
+ //        $sql = 'SELECT * FROM `terms` WHERE `name` like concat("%", :name, "%") AND `status` = :status';
+ //        return self::perform($sql, $params)->fetchAll();
+ //    }
 	
 	
 	

@@ -54,6 +54,7 @@ function autoload_helper($class_name)
 		case 'ArrayHelper': return require './helpers/ArrayHelper.php';
 		case 'Date': return require './helpers/Date.php';
 		case 'Excel': return require './helpers/Excel.php';
+		case 'Url': return require './helpers/Url.php';
 	}
 }
 

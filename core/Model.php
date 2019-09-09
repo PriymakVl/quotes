@@ -2,10 +2,11 @@
 
 class Model extends Core {
 
-	use ModelStatic, use Pagination;
+	use ModelStatic, Pagination;
 	
 	public $data;
 	protected $tableName;
+	protected $pagination;
 	
 	public function __construct($id)
 	{

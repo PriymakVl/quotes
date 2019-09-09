@@ -1,21 +1,33 @@
   <div class="container">
 
     <div class="row">
+      <!-- message -->
+      <? include './views/total/message.php'; ?>
+    </div>
+
+    <div class="row">
       <div class="col-md-12">
         <h2 class="text-center">Рейтинг книг</h2>
       </div>
     </div>
 
 	
-	<div class="row">
+  	<div class="row">
 
-		<!-- menu -->
+  		<!-- menu -->
       <? include 'menu.php'; ?>
 
-		<!-- books -->
-		<? include 'books.php'; ?>
-      
-  </div>
+  		<!-- books -->
+  		<? include 'books.php'; ?>
+        
+    </div>
+
+    <!-- pagination -->
+    <div class="row">
+      <div class="col-md-12">
+        <?= $pagination ? $pagination->links : ''?> 
+      </div>
+    </div>
   </div>
 
   <!-- rating form -->

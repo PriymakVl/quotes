@@ -44,19 +44,25 @@ class Controller_Book extends Controller {
 	
 	public function action_list()
 	{
-		// $books = (new Book)->getBooks();
 		$count_on_page = 10;
 		$obj = new Book();
 		$books = $obj->getList($count_on_page);
-		debug($books);
 		$pagination = $obj->getPagination();
-		$this->render('list/main', compact('books'));
+		$this->render('list/main', compact('books', 'pagination'));
 	}
 
 	public function action_upload_file()
 	{
 		(new Book)->setData($this->post->id_book)->addFile()->setMessage('success', 'upload_file');
 		$this->redirectPrevious();
+	}
+
+	public function action_search()
+	{
+		$books = (new Book)->search();
+		if (!$books) return $this->setMessage('danger', 'search_error')->redirect('book/list');
+		if (count($books) == 1) return $this->setMessage('success', 'search_one')->redirect('book?id_book='.$books[0]->id);
+		$this->setMessage('success', 'search_many')->render('search/main', compact('terms'));
 	}
 
 

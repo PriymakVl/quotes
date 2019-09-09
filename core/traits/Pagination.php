@@ -41,27 +41,27 @@ trait Pagination {
 
 	public function createLinksPagination() 
 	{
-    	$html = '<div class="pagination">';
+    	$html = '<ul class="pagination justify-content-center">';
+		$html .= sprintf('<li class="page-item"><a class="page-link" href="%s">&laquo;</a></li>',  Url::changeGetValue('page', $this->pagination->page - 1));
     	if ($this->pagination->page - 2 != 1 && $this->pagination->page - 1 != 1 && $this->pagination->page != 1) {
-    		$html .= sprintf('<a href="%s">&laquo;</a>',  Url::changeGetValue('page', $this->pagination->page - 1));
-    		$html .= sprintf('<a href="%s">%s</a>',  Url::changeGetValue('page', 1), 1);
+    		$html .= sprintf('<li class="page-item"><a href="%s">%s</a></li>',  Url::changeGetValue('page', 1), 1);
     	}
-    	if ($this->pagination->page - 2 > 0) $html .= sprintf('<a href="%s">%s</a>', Url::changeGetValue('page', $this->pagination->page - 2), $this->pagination->page - 2);
-    	if ($this->pagination->page - 1 > 0) $html .= sprintf('<a href="%s">%s</a>', Url::changeGetValue('page', $this->pagination->page - 1), $this->pagination->page - 1);
+    	if ($this->pagination->page - 2 > 0) $html .= sprintf('<li class="page-item"><a class="page-link" href="%s">%s</a></li>', Url::changeGetValue('page', $this->pagination->page - 2), $this->pagination->page - 2);
+    	if ($this->pagination->page - 1 > 0) $html .= sprintf('<li class="page-item"><a class="page-link" href="%s">%s</a></li>', Url::changeGetValue('page', $this->pagination->page - 1), $this->pagination->page - 1);
 
-    	$html .= sprintf('<a href="%s" class="active">%s</a>', Url::changeGetValue('page', $this->pagination->page), $this->pagination->page);
+    	$html .= sprintf('<li class="page-item active"><a class="page-link" href="%s" class="active">%s</a></li>', Url::changeGetValue('page', $this->pagination->page), $this->pagination->page);
     	
     	if (($this->pagination->page + 1) * $this->pagination->limit <= $this->pagination->total) {
-    		$html .= sprintf('<a href="%s">%s</a>', Url::changeGetValue('page', $this->pagination->page + 1), $this->pagination->page + 1);
+    		$html .= sprintf('<li class="page-item"><a class="page-link" href="%s">%s</a></li>', Url::changeGetValue('page', $this->pagination->page + 1), $this->pagination->page + 1);
 		} 
 		if (($this->pagination->page + 2) * $this->pagination->limit < $this->pagination->total) {
-    		$html .= sprintf('<a href="%s">%s</a>', Url::changeGetValue('page', $this->pagination->page + 2), $this->pagination->page + 2);
+    		$html .= sprintf('<li class="page-item"><a class="page-link" href="%s">%s</a></li>', Url::changeGetValue('page', $this->pagination->page + 2), $this->pagination->page + 2);
 		} 
 		if ($this->pagination->page != $this->pagination->all && $this->pagination->page + 1 != $this->pagination->all && $this->pagination->page = 2 != $this->pagination->all) {
-    		$html .= sprintf('<a href="%s">%s</a>', Url::changeGetValue('page', $this->pagination->all), $this->pagination->all);
-    		$html .= sprintf('<a href="%s">&raquo;</a>', Url::changeGetValue('page', $this->pagination->page + 1));
+    		$html .= sprintf('<li class="page-item"><a class="page-link" href="%s">%s</a></li>', Url::changeGetValue('page', $this->pagination->all), $this->pagination->all);
 		} 
-    	return $html .= '</div>';
+		$html .= sprintf('<li class="page-item"><a class="page-link" href="%s">&raquo;</a></li>', Url::changeGetValue('page', $this->pagination->page + 1));
+    	return $html .= '</ul>';
 	}
 
 
