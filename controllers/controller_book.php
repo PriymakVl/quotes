@@ -62,7 +62,7 @@ class Controller_Book extends Controller {
 		$books = (new Book)->search();
 		if (!$books) return $this->setMessage('danger', 'search_error')->redirect('book/list');
 		if (count($books) == 1) return $this->setMessage('success', 'search_one')->redirect('book?id_book='.$books[0]->id);
-		$this->setMessage('success', 'search_many')->render('search/main', compact('terms'));
+		$this->setMessage('success', 'search_many')->render('search/main', compact('books'));
 	}
 
 

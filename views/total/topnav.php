@@ -1,8 +1,23 @@
+<?php
+  $url = explode('?', $_SERVER['REQUEST_URI'], 2)[0];
+  $controller = explode('/', $url)[1];
+
+  $search_name = ''; $placeholder = '';
+  if ($controller == 'book') {
+    $search_name = 'title';
+    $placeholder = 'Найти книгу';
+  }
+  else if ($controller == 'author') {
+    $search_name = 'last_name'; 
+    $placeholder = 'Найти автора';
+  }
+?>
 <style>
     .nav-link {
         margin-right: 30px;
     }
 </style>
+
   <nav class="navbar navbar-expand-sm  navbar-light bg-light"> <!-- bg-dark navbar-dark -->
   <!-- Brand -->
   <a class="navbar-brand" href="#">Logo</a>
@@ -32,9 +47,11 @@
     </li> -->
   </ul>
 
-  <form class="form-inline navbar-right" action="/book/search">
-      <input class="form-control mr-sm-2" type="text" name="title" placeholder="Найти книгу">
-      <button class="btn btn-outline-success" type="submit">Поиск</button>
-  </form>
+  <? if ($search_name): ?>
+    <form class="form-inline navbar-right" action="/<?=$controller?>/search">
+        <input class="form-control mr-sm-2" type="text" name="<?=$search_name?>" placeholder="<?=$placeholder?>">
+        <button class="btn btn-outline-success" type="submit">Поиск</button>
+    </form>
+  <? endif; ?>
 </nav> 
 

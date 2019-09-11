@@ -44,6 +44,19 @@ class Author extends Model {
 		$this->books = (new Book)->getForAuthor($this->id);
 		return $this;
 	}
+
+	public function getAuthors()
+	{
+		$sql = "SELECT * FROM `authors` WHERE `status` = :status ORDER BY `surname`";
+		return self::perform($sql, ['status' => STATUS_ACTIVE])->fetchAll();
+	}
+
+	public function getList($limit = false)
+	{
+		$items = $this->getAuthors();
+		if (!$limit) return $items;
+		return $this->getDataForPage($items, $limit);
+	}
 	
 	
 }

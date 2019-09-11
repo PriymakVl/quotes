@@ -18,8 +18,13 @@
 		
 	    <!-- authors list -->
 		<? include 'authors.php'; ?>
-
 	</div>
+	<!-- pagination -->
+    <div class="row">
+      <div class="col-md-12">
+        <?= $pagination ? $pagination->links : ''?> 
+      </div>
+    </div>
 </div>
 
 
