@@ -1,11 +1,9 @@
-<!-- css files -->
-<link rel="stylesheet" href="/web/css/form.css">
-<link rel="stylesheet" href="/modules/quote/css/form.css">
+<div class="container">
+	<div class="row">
+	    <!-- quote form -->
+	    <? include 'form.php'; ?>
 
-<div id="content">
-    <!-- quote form -->
-    <? include 'form.php'; ?>
-
+	</div>	
 </div>
 
 

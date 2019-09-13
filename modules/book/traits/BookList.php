@@ -2,9 +2,10 @@
 
 trait BookList {
 
-	public function getList($limit)
+	public function getList($limit = null)
 	{
 		$items = $this->selectBooks();
+		if ($limit) return $items;
 		$items = $this->getDataForPage($items, $limit);
 		if ($items) return ObjectHelper::createArray($items, 'Book', ['setData', 'getAuthor', 'getCategory']);
 	}

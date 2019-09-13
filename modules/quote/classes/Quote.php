@@ -2,7 +2,7 @@
 
 class Quote extends Model {
 	
-	use QuoteTotal, QuoteAddFile, QuoteMessage;
+	use QuoteList, QuoteAddFile, QuoteMessage;
 	
 	public $favorite;
 	public $random;
