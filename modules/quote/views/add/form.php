@@ -1,69 +1,49 @@
 <?php
-	$categories = (new Category)->getMain();
-	//$authors = Author::getAll();
+	$authors = (new Author)->getList();
+	$books = (new Book)->getList();
+
 ?>
 
-<div id="form-quote-wrp">
-    <h2 class="center">Форма для добавления цитаты</h2>
+<div class="container">
+    <h3>Форма для добавления цитаты</h3>
     <form action="/quote/add" method="post">
-        <!-- categories box -->
-        <div class="form-box">
-            <!-- category -->
-            <div id="form-category-wrp">
-				<label>Категория: <span class="green"><?=(new Category)->setData($this->get->id_cat)->name?></span></label>
-				<? if ($this->get->id_cat): ?>
-					<input type="hidden" name="id_cat" value="<?=$this->get->id_cat?>">
-				<? else: ?>
-					<label>Категория:</label>
-					<select name="id_cat">
-						<option value="0">Без категории</option>
-						<? foreach ($categories as $cat): ?>
-							<option value="<?=$cat->id?>"><?=$cat->name?></option>
-						<? endforeach; ?>
-					</select>
-				<? endif; ?>
-            </div>
-			
-			<!-- sub category -->
-            <div id="form-subcategory-wrp" style="display:none;">
-                <label>Подкатегория:</label>
-                <select name="subcat"></select>
-            </div>
-        </div>
-		
-		 <!-- author -->
-        <div class="form-box">
-			<label>Автор:</label>
-			<select name="id_author">
-				<option value="0">Без автора</option>
+		<!-- authors -->
+        <div class="form-group">
+			<label>Авторы:</label>
+			<select class="form-control" name="id_author">
+				<option value="0">Не выбран</option>
 				<? foreach ($authors as $author): ?>
-					<option value="<?=$author->id?>"><?=$author->sername?></option>
+					<option value="<?=$author->id?>" <? if ($this->get->id_author == $author->id) echo 'selected'; ?>><?=$author->surname?></option>
 				<? endforeach; ?>
 			</select>
         </div>
-		<!-- book -->
-		<div class="form-box">
-			<label>Книга:</label>
-			<select name="id_book">
-				<option value="0">Не указана</option>
+        <!-- books -->
+        <div class="form-group">
+			<label>Книги:</label>
+			<select class="form-control" name="id_author">
+				<option value="0">Не выбран</option>
 				<? foreach ($books as $book): ?>
-					<option value="<?=$book->id?>"><?=$book->title?></option>
+					<option value="<?=$book->id?>"><?=$book->surname?></option>
 				<? endforeach; ?>
 			</select>
         </div>
-
-        <div class="form-box">
-			<!-- text quote -->
-			<div>
-				<label>Текст цитаты:</label>
-				<textarea name="text"></textarea>
-			</div>
+		<!-- text quote -->
+		<div class="form-group">
+			<label>Текст цитаты:</label>
+			<textarea class="form-control" rows="3" name="text"></textarea>
+		</div>
+		<!-- rating quote -->
+		<div class="form-group">
+			<label>Рейтинг книги:</label>
+			<input class="form-control" type="text" name="rating">
 		</div>
 
         <!-- buttons -->
-        <div class="button-box">
-            <input type="submit" value="Сохранить" id="form-product" name="save">
-            <input type="button" onclick="history.back();" value="Отменить">
+        <div class="form-group">
+            <input type="submit" class="btn btn-success" value="Сохранить" name="save">
+            <input type="button"class="btn btn-primary"onclick="history.back();" value="Отменить">
         </div>
     </form>
 </div>
+
+

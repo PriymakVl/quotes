@@ -31,5 +31,11 @@ trait QuoteModel {
 		return insert($sql, $params);
 	}
 
+	public function selectAll()
+	{
+		$sql = "SELECT * FROM `quotes` WHERE `status` = :status ORDER BY rating DESC";
+		return self::perform($sql, ['status' => STATUS_ACTIVE])->fetchAll();
+	}
+
 
 }

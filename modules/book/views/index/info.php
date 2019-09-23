@@ -31,7 +31,13 @@
 			<tr>
 				<td>4</td>
 				<td>Автор</td>
-				<td class="left"><?=$book->author ? $book->author->surname : '<span class="text-danger">нет</span>'?></td>
+				<td class="left">
+					<? if ($book->author): ?>
+						<? printf('<a href="/author?id_author=%s">%s</a>', $book->author->id, $book->author->surname); ?>
+					<? else: ?>
+						<span class="text-danger">нет</span>
+					<? endif; ?>
+				</td>
 			</tr>
 			<!-- state book -->
 			<tr>

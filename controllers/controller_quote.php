@@ -25,17 +25,20 @@ class Controller_Quote extends Controller {
 
 	public function action_list()
 	{
-		$list = (new Quote)->getAllQuotes();
-		$this->render('list/main', compact('list'));
+		$count_on_page = 5;
+		$obj = new Quote();
+		$quotes = $obj->getList($count_on_page);
+		$pagination = $obj->getPagination();
+		$this->render('list/main', compact('quotes', 'pagination'));
 	}
 	
-	public function action_category()
-	{
-		$category = $this->get->id_cat ? (new Category)->setData($this->get->id_cat)->getSubcategories() : null;
-		if ($category && $category->sub) return $this->redirect('category/list?id_cat='.$category->id);
-		$quotes = (new Quote)->getForCategory();
-		$this->render('category/main', compact('quotes', 'category'));
-	}
+	// public function action_category()
+	// {
+	// 	$category = $this->get->id_cat ? (new Category)->setData($this->get->id_cat)->getSubcategories() : null;
+	// 	if ($category && $category->sub) return $this->redirect('category/list?id_cat='.$category->id);
+	// 	$quotes = (new Quote)->getForCategory();
+	// 	$this->render('category/main', compact('quotes', 'category'));
+	// }
 	
 	public function action_add_file()
 	{
@@ -47,7 +50,7 @@ class Controller_Quote extends Controller {
 	public function action_edit_rating()
 	{
 		$quote = (new Quote)->setData($this->get->id_quote)->setRating($this->get->rating)->setMessage('success', 'edit_rating');
-		$this->redirect('/quotes/quote/category?id_cat='.$this->get->id_cat.'&id_active='.$quote->id);
+		$this->redirect('/quotes/quote/list');
 	}
 	
 	public function action_edit()

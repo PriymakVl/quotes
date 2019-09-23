@@ -17,8 +17,11 @@ class Controller_Author extends Controller {
 
 	public function action_list()
 	{
-		$authors = (new Author)->getAll('authors');
-		$this->render('list/main', compact('authors'));
+		$count_on_page = 2;
+		$obj = new Author();
+		$authors = $obj->getList($count_on_page);
+		$pagination = $obj->getPagination();
+		$this->render('list/main', compact('authors', 'pagination'));
 	}
 	
 	public function action_add()
@@ -41,6 +44,15 @@ class Controller_Author extends Controller {
 		$author = (new Author)->getData($this->get->id_author);
 		$author->delete()->setMessage('success', 'delete');
 		$this->redirect('/author/list');
+	}
+
+	public function action_search()
+	{
+		debug();
+		$authors = (new Author)->search();
+		if (!$authors) return $this->setMessage('danger', 'search_error')->redirect('author/list');
+		if (count($authors) == 1) return $this->setMessage('success', 'search_one')->redirect('author?id_author='.$authors[0]->id);
+		$this->setMessage('success', 'search_many')->render('search/main', compact('terms'));
 	}
 
 

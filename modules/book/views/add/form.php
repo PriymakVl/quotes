@@ -1,5 +1,5 @@
 <?php
-	$authors = (new Author)->getAll('authors');
+	$authors = (new Author)->getList();
 	$cats = (new Category)->getAll('categories');
 	$states = [Book::STATE_NOT_READ, Book::STATE_SPEED_READ, Book::STATE_READ, Book::STATE_AUDIO, Book::STATE_OUTLINED];
 ?>
